@@ -46,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581594612486</updated>
-      <workItem from="1581594614017" duration="1181000" />
+      <workItem from="1581594614017" duration="1437000" />
     </task>
     <task id="LOCAL-00001" summary="Oprettelse af mapper">
       <created>1581594669213</created>
@@ -69,7 +69,21 @@
       <option name="project" value="LOCAL" />
       <updated>1581595367133</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="oprettelse af JavaScript mappe">
+      <created>1581595804419</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581595804419</updated>
+    </task>
+    <task id="LOCAL-00005" summary="oprettelse af JavaScript file">
+      <created>1581595872898</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581595872898</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +104,8 @@
     <MESSAGE value="Oprettelse af mapper" />
     <MESSAGE value="oprettelse af js" />
     <MESSAGE value="ALT SLETTET" />
-    <option name="LAST_COMMIT_MESSAGE" value="ALT SLETTET" />
+    <MESSAGE value="oprettelse af JavaScript mappe" />
+    <MESSAGE value="oprettelse af JavaScript file" />
+    <option name="LAST_COMMIT_MESSAGE" value="oprettelse af JavaScript file" />
   </component>
 </project>
