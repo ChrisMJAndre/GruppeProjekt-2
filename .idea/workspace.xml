@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b759601-5378-4b90-86fc-88479d4acf48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/JavaScript/Test 1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-    </list>
+    <list default="true" id="7b759601-5378-4b90-86fc-88479d4acf48" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581594612486</updated>
-      <workItem from="1581594614017" duration="745000" />
+      <workItem from="1581594614017" duration="1181000" />
     </task>
     <task id="LOCAL-00001" summary="Oprettelse af mapper">
       <created>1581594669213</created>
@@ -65,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581595138824</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ALT SLETTET">
+      <created>1581595367133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581595367133</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,6 +89,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Oprettelse af mapper" />
     <MESSAGE value="oprettelse af js" />
-    <option name="LAST_COMMIT_MESSAGE" value="oprettelse af js" />
+    <MESSAGE value="ALT SLETTET" />
+    <option name="LAST_COMMIT_MESSAGE" value="ALT SLETTET" />
   </component>
 </project>
