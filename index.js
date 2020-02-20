@@ -25,7 +25,8 @@ app.get('/teacher',(req,res)=>{ //kaldes når en request til /about kommer
     //res.sendFile(path.resolve(__dirname,'pages/post.ejs'))
     res.render('teacher');
 })
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname + '/public')));
 app.listen(4000, ()=>{
     console.log('App listening on port 4000');
 })
