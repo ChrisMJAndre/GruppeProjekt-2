@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+</head>
+<body>
+
+<h1>Please enter your information below</h1>
+<form id = "Registration Form">
+    <input type = "text" id = "userName" value = "" placeholder = "Your username"/>
+    <br/>
+    <br/>
+    <input type = "text" id = "fullName" value = "" placeholder = "Your full name" />
+    <br/>
+    <br/>
+    <input type = "text" id = "email" value = "" placeholder = "Your Email" />
+    <br/>
+    <br/>
+    <input type = "text" id = "phone" value = "" placeholder = "Your phone number" />
+    <br/>
+    <br/>
+    <input type = "password" id = "password" value = "" placeholder = "Your password" />
+    <br/>
+    <br/>
+    <input type="radio" class = "student/teacher" name = "checked" checked /> <a>Student</a>
+    <input type ="radio" class ="teacher/teacher" name = "checked" /> <a>Teacher</a>
+    <br/>
+
+    <!-- Text area for additional comments -->
+    <p>Additional comments</p>
+    <textarea type="text" rows="5" cols="30" id="comment" value="" placeholder="Your comment here..."></textarea>
+    <br/>
+    <!-- Submit button to activate some function -->
+    <button  type="button"  onclick = "return validateContactInformation(), storeLogin()"> Register </button>
+    <br/>
+</form>
+<script type="text/javascript" src="../Javascript/registration.js"></script>
+<link rel="stylesheet" href="styles.css" type="text/css">
+</body>
+</html>
+

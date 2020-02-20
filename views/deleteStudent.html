@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete student</title>
+</head>
+
+<body>
+
+<!-- Drop down menu til at fjerne students -->
+<h1>Delete an existing student</h1>
+<ul>
+    <li><a href="deleteStudent.html">Delete a student</a> </li>
+    <li><a href="deleteTeacher.html">Delete a teacher</a></li>
+    <li><a href="deleteLecture.html">Delete lecture</a></li>
+    <li><a href="showStudentInformation.html">Show student information</a></li>
+    <li><a href="showTeacherInformation.html">Show teacher information</a></li>
+</ul>
+<br>
+<select id="allStudents" size="4">
+    <option>Christopher André HA(it.) 1. semester</option>
+    <option>Niklas L-B HA(it.) 1. semester</option>
+    <option>Sven Eriksen HA(jur.) 4. semester</option>
+    <option>Kasper Rasmussen HA(jur.) 3. semester </option>
+</select>
+
+<br>
+
+<button type="button" onclick="deleteStudent()">Delete the selected student</button>
+<script src="../Javascript/admin.js"></script>
+<script src="../Javascript/teacher.js"></script>
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+</body>
+
+</html>

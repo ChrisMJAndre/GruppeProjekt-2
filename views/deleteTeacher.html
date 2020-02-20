@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete teacher</title>
+</head>
+
+<body>
+<!-- Drop down menu til at fjerne teachers -->
+<h1>Delete an existing teacher</h1>
+<ul>
+    <li><a href="deleteStudent.html">Delete a student</a> </li>
+    <li><a href="deleteTeacher.html">Delete a teacher</a></li>
+    <li><a href="deleteLecture.html">Delete lecture</a></li>
+    <li><a href="showStudentInformation.html">Show student information</a></li>
+    <li><a href="showTeacherInformation.html">Show teacher information</a></li>
+</ul>
+<br>
+<select id="allTeachers" size="3">
+    <option>Josefine HA(it.) 3. semester</option>
+    <option>Calle HA(it.) 5. semester</option>
+    <option>Mikkel HA(jur.) 4. semester</option>
+</select>
+<br>
+<button type="button" onclick="deleteTeacher()">Delete the selected teacher</button>
+<script src="../Javascript/admin.js"></script>
+<script src="../Javascript/teacher.js"></script>
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+</body>
+
+</html>
