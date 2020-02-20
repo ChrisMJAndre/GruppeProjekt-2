@@ -8,6 +8,8 @@ function Register() {
     this.phone = document.getElementById("phone").value;
     this.comment = document.getElementById("comment").value;
     this.password = document.getElementById("password").value;
+
+    test
 }
 */
 
