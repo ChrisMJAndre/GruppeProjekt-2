@@ -1,0 +1,72 @@
+@font-face {
+    font-family: cbsNewBold;
+    src: url(../Fonts/cbsNewBold.ttf);
+}
+@font-face {
+    font-family: cbsNewRegular;
+    src: url(../Fonts/cbsNewRegular.ttf);
+}
+
+body {
+    background-color: rgb(247, 247, 243);
+}
+
+button {
+    background-color: rgb(73,103,170);
+    font-family: cbsNewRegular;
+    color: aliceblue;
+    font-size: 18px;
+}
+
+h1 {
+    color: rgb(73, 103, 170);
+    font-family: cbsNewBold;
+    text-align: center;
+    font-size: 60px;
+}
+
+h2 {
+    color: rgb(73, 103, 170);
+    font-family: cbsNewBold;
+}
+
+h3 {
+    color: rgb(73, 103, 170);
+    font-family: cbsNewBold;
+}
+
+
+input, select, option, textarea, text {
+    font-family: cbsNewRegular;
+    font-size: 16px;
+}
+p, a {
+
+    font-family: cbsNewRegular;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(185, 194, 200);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+

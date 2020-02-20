@@ -1,0 +1,19 @@
+/* Her skjules dropdown listerne der hører til hver deres forelæsning og deres knap der fjerner en student derfra - Nik */
+#studentsIn2 {
+    display:none;
+}
+#studentsIn3 {
+    display:none;
+}
+#studentsIn4 {
+    display:none;
+}
+#removeButton2 {
+    display: none;
+}
+#removeButton3 {
+    display: none;
+}
+#removeButton4 {
+    display: none;
+}
