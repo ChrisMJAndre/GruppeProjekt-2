@@ -33,7 +33,7 @@ login.onclick = function login() {
         if (user == existingTeacher[h].userName && pass == existingTeacher[h].password) {
             alert("You are logged in as a teacher");
 // Linking to the teacher page - Chris
-            document.location.href = "teacher.html";
+            document.location.href = "teacher.ejs";
             return true;
         }
     }
