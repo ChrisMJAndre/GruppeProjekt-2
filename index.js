@@ -9,17 +9,21 @@ app.get('/',(req,res)=>{
     //res.sendFile(path.resolve(__dirname,'pages/index.ejs'))
     res.render('index');
 })
-app.get('/about',(req,res)=>{ //kaldes når en request til /about kommer
+app.get('/login',(req,res)=>{ //kaldes når en request til /about kommer
     //res.sendFile(path.resolve(__dirname,'pages/about.ejs'))
-    res.render('about');
+    res.render('login');
 })
-app.get('/contact',(req,res)=>{ //kaldes når en request til /contact kommer
+app.get('/student',(req,res)=>{ //kaldes når en request til /contact kommer
     //res.sendFile(path.resolve(__dirname,'pages/contact.ejs'))
-    res.render('contact');
+    res.render('student');
 })
-app.get('/post',(req,res)=>{ //kaldes når en request til /about kommer
+app.get('/admin',(req,res)=>{ //kaldes når en request til /about kommer
     //res.sendFile(path.resolve(__dirname,'pages/post.ejs'))
-    res.render('post');
+    res.render('admin');
+})
+app.get('/teacher',(req,res)=>{ //kaldes når en request til /about kommer
+    //res.sendFile(path.resolve(__dirname,'pages/post.ejs'))
+    res.render('teacher');
 })
 app.use(express.static('public'));
 app.listen(4000, ()=>{
