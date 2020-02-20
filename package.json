@@ -1,0 +1,23 @@
+git {
+  "name": "gruppeprojekt-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisMJAndre/GruppeProjekt-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisMJAndre/GruppeProjekt-2/issues"
+  },
+  "homepage": "https://github.com/ChrisMJAndre/GruppeProjekt-2#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
