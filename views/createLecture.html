@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create lecture</title>
+</head>
+<body>
+<h1>Create lecture</h1>
+<ul>
+    <li><a href="teacher.html">Teacher</a> </li>
+    <li><a href="createLecture.html">Create lecture</a></li>
+    <li><a href="removeLecture.html">Remove lecture</a></li>
+    <li><a href="removeStudent.html">Remove student</a></li>
+</ul>
+
+<h2>Create lecture</h2>
+<form name="Create Lecture">
+    <!-- Text fields -->
+    <p>Teacher name</p>
+    <input type="text" id="teacher1" value="" placeholder="Your name"/>
+    <br/>
+
+    <!-- Dropdown lists -->
+    <p>Study program</p>
+    <select id="studyProgram">
+        <option selected disabled>Select study program</option>
+        <option value="HA(it.)">HA(it.)</option>
+        <option value="HA(jur.)">HA(jur.)</option>
+        <option value="HA(fil.)">HA(fil.)</option>
+        <option value="HA(mat.)">HA(mat.)</option>
+        <option value="HA(pro.)">HA pro.</option>
+        <option value="HA(kom.)">HA(kom.)</option>
+        <option value="HA(psyk.)">HA(psyk.)</option>
+    </select>
+    <br/>
+
+    <p>Course</p>
+    <select id="course">
+        <option selected disabled>Select course</option>
+        <option value="BIS">Introduction to Informations Systems and Informations Systems Development</option>
+        <option value="VØS">Virksomhedens økonomiske styring 1</option>
+        <option value="PRO">Programmering og udvikling af små systemer samt databaser</option>
+        <option value="ORG">Indføring i organisationers opbygning og funktion</option>
+    </select>
+    <br/>
+
+    <p>Classroom</p>
+        <select id="chooseClassroom">
+            <option>Select classroom</option>
+        </select>
+
+
+
+    <br/>
+    <p>Lecture Name</p>
+    <input type="text" name="text" id="lectureName" value="" placeholder="Lecture name"/>
+    <p id="lName"></p>
+
+    <p>Day</p>
+    <select id="day">
+        <option selected disabled>Choose day</option>
+        <option value="Mon">Monday</option>
+        <option value="Tue">Tuesday</option>
+        <option value="Wed">Wednesday</option>
+        <option value="Thu">Thursday</option>
+        <option value="Fri">Friday</option>
+    </select>
+    <br/>
+
+    <p>Time of lecture</p>
+    <textarea rows="1" cols="15" id="time" placeholder="Insert time"></textarea>
+    <br/>
+
+
+    <!-- Text area for additional comments -->
+    <p>Additional comments</p>
+    <textarea rows="5" cols="30" id="comment" placeholder="Your comment here..."></textarea>
+
+    <!-- Submit button to create lecture -->
+    <br/>
+    <button id="lecture" type="button" onclick="createLecture()"> Create lecture </button>
+    <br/>
+    <br/>
+</form>
+<script type="text/javascript" src="../Javascript/user.js"></script>
+<script type="text/javascript" src="../Javascript/teacher.js"></script>
+<script type="text/javascript" src="../Javascript/classroom.js"></script>
+<link rel="stylesheet" href="styles.css" type="text/css">
+</body>
+</html>
