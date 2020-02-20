@@ -23,7 +23,7 @@ login.onclick = function login() {
         if (user == existingStudent[i].userName && pass == existingStudent[i].password) {
             alert("You are logged in as a student");
 // Linking to the student page - Chris
-            document.location.href = "Student.html"
+            document.location.href = "student.ejs"
             return true;
         }
     }
@@ -43,7 +43,7 @@ login.onclick = function login() {
         if (user == existingAdmin[g].userName && pass == existingAdmin[g].password) {
             alert("You are logged in as an admin");
 // Linking to the Admin page. For some reason it would not allow me to link straight to the html page as with student and teacher, but this works as well - Chris
-            document.location.href = "../Text files/admin.html";
+            document.location.href = "../Text files/admin.ejs";
             return true;
         }
     }
