@@ -1,9 +1,9 @@
 {
   "name": "gruppeprojekt-2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +17,27 @@
   },
   "homepage": "https://github.com/ChrisMJAndre/GruppeProjekt-2#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+<<<<<<< HEAD
+    "express-fileupload": "^1.1.6",
+    "express-session": "^1.17.0",
+    "mongoose-unique-validator": "^2.0.3",
+    "pg": "^7.18.2"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "reload": "^3.0.4"
   }
+=======
+    "nodemon": "^2.0.2",
+    "pg": "^7.18.2",
+    "sessions": "0.0.2-7"
+  },
+  "devDependencies": {},
+  "description": ""
+>>>>>>> 0a6dbffceb97765ee41bf4efc95843f704ebbd28
 }
