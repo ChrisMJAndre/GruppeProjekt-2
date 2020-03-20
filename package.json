@@ -1,7 +1,6 @@
 {
   "name": "gruppeprojekt-2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +17,11 @@
   "homepage": "https://github.com/ChrisMJAndre/GruppeProjekt-2#readme",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "pg": "^7.18.2",
+    "sessions": "0.0.2-7"
+  },
+  "devDependencies": {},
+  "description": ""
 }
