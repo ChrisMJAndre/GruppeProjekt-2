@@ -9,31 +9,31 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 app.get('/login', (req, res) => {
-    about.ejs'))
+    //   about.ejs'))
     res.render('login');
 })
 app.get('/student', (req, res) => {
-    contact.ejs'))
+    //  contact.ejs'))
     res.render('student');
 })
 app.get('/admin', (req, res) => {
-    post.ejs'))
+    // post.ejs'))
     res.render('admin');
 })
 app.get('/teacher', (req, res) => {
-    post.ejs'))
+    //   post.ejs'))
     res.render('teacher');
 })
 app.get('/removeStudent', (req, res) => {
-    post.ejs'))
+    // post.ejs'))
     res.render('removeStudent');
 })
 app.get('/removeLecture', (req, res) => {
-    post.ejs'))
+    //post.ejs'))
     res.render('removeLecture');
 })
 app.get('/createLecture', (req, res) => {
-    post.ejs'))
+    //post.ejs'))
     res.render('createLecture');
 })
 app.use(express.static('public'));
