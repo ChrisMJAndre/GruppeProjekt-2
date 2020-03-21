@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<%- include('layouts/headerTeacher'); -%>
-<body>
-<ul>
-    <li><a href="/">Index</a></li>
-    <li><a href="/teacher">Teacher</a> </li>
-    <li><a href="/createLecture">Create lecture</a></li>
-    <li><a href="/removeLecture">Remove lecture</a></li>
-    <li><a href="/removeStudent">Remove student</a></li>
-</ul>
-<%- include('layouts/scripts'); -%>
-</body>
+  <%- include('layouts/headerTeacher'); -%>
+  <body>
+    <h1>Teacher profile</h1>
+    <%- include('layouts/navTeacher'); -%> <%- include('layouts/scripts'); -%>
+  </body>
 </html>

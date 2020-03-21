@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Delete lecture</title>
+  <%- include('layouts/headerAdmin'); -%>
 
-</head>
+  <body>
+    <h1>Delete an existing lecture</h1>
+    <%- include('layouts/navAdmin'); -%>
 
-<body>
-<h1>Delete an existing lecture</h1>
-<ul>
-    <li><a href="deleteStudent.ejs">Delete a student</a> </li>
-    <li><a href="deleteTeacher.ejs">Delete a teacher</a></li>
-    <li><a href="deleteLecture.ejs">Delete lecture</a></li>
-    <li><a href="showStudentInformation.ejs">Show student information</a></li>
-    <li><a href="showTeacherInformation.ejs">Show teacher information</a></li>
-</ul>
-<br>
-<select id="allLectures" size="13">
-    <!-- De første to er BIS forelæsninger for HA(it.) -->
-    <option>Vandfaldsmodellen</option>
-    <option>Httml for begyndere</option>
-    <!-- De næste to er VØS forelæsninger for HA(it.) -->
-    <option>Consumer surplus og producer surplus</option>
-    <option>Lineær programmering</option>
-    <!-- De næste to er PRO forelæsninger for HA(it.) -->
-    <option>Programmering - Guide til objekter</option>
-    <option>If statements og loops</option>
-    <!-- De næste to er ORG forelæsninger for HA(it.) -->
-    <option>Kultur i organisationer</option>
-    <option>Motivation og koblingen til andre emner</option>
-    <!-- Denne er en forelæsning for mikroøkonomi for HA(jur.) -->
-    <option>Mikroøkonomi opsummering</option>
-    <!-- Denne er en forelæsning for formueret for HA(jur.) -->
-    <option>Formueret eksamen tips og tricks </option>
-    <!-- De næste tre er forelæsninger for aftaleret for HA(jur.) -->
-    <option>Aftaleret for begyndere</option>
-    <option>Juridisk metode introduktion</option>
-    <option>Fuldmagt og ugyldighed opsummering</option>
-</select>
-<br>
-<button type="button" onclick="deleteLecture();">Delete the selected lecture</button>
+    <br />
+    <select id="allLectures" size="13">
+      <!-- De første to er BIS forelæsninger for HA(it.) -->
+      <option>Vandfaldsmodellen</option>
+      <option>Httml for begyndere</option>
+      <!-- De næste to er VØS forelæsninger for HA(it.) -->
+      <option>Consumer surplus og producer surplus</option>
+      <option>Lineær programmering</option>
+      <!-- De næste to er PRO forelæsninger for HA(it.) -->
+      <option>Programmering - Guide til objekter</option>
+      <option>If statements og loops</option>
+      <!-- De næste to er ORG forelæsninger for HA(it.) -->
+      <option>Kultur i organisationer</option>
+      <option>Motivation og koblingen til andre emner</option>
+      <!-- Denne er en forelæsning for mikroøkonomi for HA(jur.) -->
+      <option>Mikroøkonomi opsummering</option>
+      <!-- Denne er en forelæsning for formueret for HA(jur.) -->
+      <option>Formueret eksamen tips og tricks </option>
+      <!-- De næste tre er forelæsninger for aftaleret for HA(jur.) -->
+      <option>Aftaleret for begyndere</option>
+      <option>Juridisk metode introduktion</option>
+      <option>Fuldmagt og ugyldighed opsummering</option>
+    </select>
+    <br />
+    <button type="button" onclick="deleteLecture();">
+      Delete the selected lecture
+    </button>
 
-<script type="text/javascript" src="../Javascript/admin.js"></script>
+    <script type="text/javascript" src="../Javascript/admin.js"></script>
 
-<link rel="stylesheet" href="styles.css" type="text/css">
-</body>
-
+    <%- include('layouts/scripts'); -%>
+  </body>
 </html>

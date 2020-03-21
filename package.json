@@ -24,13 +24,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
-},
-"bugs": {
-  "url": "https://github.com/ChrisMJAndre/GruppeProjekt-2/issues"
-},
-"homepage": "https://github.com/ChrisMJAndre/GruppeProjekt-2#readme",
-"repository": {
-  "type": "git",
-  "url": "git+https://github.com/ChrisMJAndre/GruppeProjekt-2.git"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisMJAndre/GruppeProjekt-2/issues"
+  },
+  "homepage": "https://github.com/ChrisMJAndre/GruppeProjekt-2#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisMJAndre/GruppeProjekt-2.git"
+  }
 }

@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Remove lecture</title>
-</head>
-<body>
-<h1>Remove lecture</h1>
-<ul>
-    <li><a href="teacher.ejs">Teacher</a> </li>
-    <li><a href="createLecture.ejs">Create lecture</a></li>
-    <li><a href="removeLecture.ejs">Remove lecture</a></li>
-    <li><a href="removeStudent.ejs">Remove student</a></li>
-</ul>
-<!-- Dropdown list med alle ens egne oprettede forelæsninger -->
-<h2>Remove (one of) your lecture(s)</h2>
-<select id="teacherLecture" size="4">
-    <option>Consumer surplus og producer surplus</option>
-    <option>Lineær programmering</option>
-    <option>Programmering - Guide til objekter</option>
-    <option>If statements og loops</option>
-</select>
-<br>
-<button type="button" onclick="removeLecture();">Remove selected lecture</button>
+  <%- include('layouts/headerTeacher'); -%>
+  <body>
+    <h1>Remove lecture</h1>
+    <%- include('layouts/navTeacher'); -%>
+    <!-- Dropdown list med alle ens egne oprettede forelæsninger -->
+    <h2>Remove (one of) your lecture(s)</h2>
+    <select id="teacherLecture" size="4">
+      <option>Consumer surplus og producer surplus</option>
+      <option>Lineær programmering</option>
+      <option>Programmering - Guide til objekter</option>
+      <option>If statements og loops</option>
+    </select>
+    <br />
+    <button type="button" onclick="removeLecture();">
+      Remove selected lecture
+    </button>
 
-<script type="text/javascript" src="../Javascript/user.js"></script>
-<script type="text/javascript" src="../Javascript/teacher.js"></script>
-<link rel="stylesheet" href="teacher.css">
-<link rel="stylesheet" href="styles.css" type="text/css">
-</body>
+    <%- include('layouts/scripts'); -%>
+  </body>
 </html>
