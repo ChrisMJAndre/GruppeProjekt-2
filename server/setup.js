@@ -1,44 +1,44 @@
 const pool = require('./db');
 pool.query(`
     CREATE TABLE Classroom(
-        id int,
+        id int NOT NULL,
         size INT NOT NULL,
         location text NOT NULL,
         PRIMARY KEY(id));
     
     CREATE TABLE StudyProgramme( 
-        id int,
+        id int NOT NULL,
         title text NOT NULL,
         PRIMARY KEY(id));
     
     CREATE TABLE Course(  
-        id int,  
+        id int NOT NULL,  
         title text NOT NULL, 
         semester INT NOT NULL, 
         PRIMARY KEY(id),
-        FOREIGN KEY (id) REFERENCES StudyProgramme(id));
+        CONSTRAINT FOREIGN KEY (id) REFERENCES StudyProgramme(id));
     
     CREATE TABLE User(
-        id int,
+        id int NOT NULL,
         firstName text NOT NULL, 
         lastName text NOT NULL, 
         email text NOT NULL, 
         phoneNumber INT NOT NULL, 
         type text NOT NULL,
         PRIMARY KEY(id),
-        FOREIGN KEY (id) REFERENCES StudyProgramme(id));
+        CONSTRAINT FOREIGN KEY (id) REFERENCES StudyProgramme(id));
         
     CREATE TABLE Lecture(  
-        id int,  
+        id int NOT NULL,  
         lectureName text NOT NULL, 
         date date NOT NULL,
         time time NOT NULL,
         comment text NOT NULL,
         listOfStudents char[],
         PRIMARY KEY(id),
-        FOREIGN KEY (id) REFERENCES Course(id));
-        FOREIGN KEY (id) REFERENCES Classroom(id));
-        FOREIGN KEY (id) REFERENCES User(id));
+        CONSTRAINT FOREIGN KEY (id) REFERENCES Course(id),
+        CONSTRAINT FOREIGN KEY (id) REFERENCES Classroom(id),
+        CONSTRAINT FOREIGN KEY (id) REFERENCES User(id)
         );
     
         
