@@ -7,7 +7,7 @@ pool.query(`
 ALTER TABLE SignUp 
 ADD CONSTRAINT FK_Lecture_id FOREIGN KEY (id)
 REFERENCES Lecture (id)
-
+HEJ NICKLAS
         
 `).then(result => {
     console.log(error, result);
