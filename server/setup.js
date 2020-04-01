@@ -13,7 +13,7 @@ pool.query(`
         id SERIAL PRIMARY KEY,  
         title text NOT NULL, 
         semester INT NOT NULL, 
-        StudyProgramme_id SERIAL REFERENCES StudyProgramme (id));
+        StudyProgramme_id REFERENCES StudyProgramme (id));
     
     CREATE TABLE User(
         id SERIAL PRIMARY KEY,
@@ -22,7 +22,8 @@ pool.query(`
         email text NOT NULL, 
         phoneNumber INT NOT NULL, 
         type text NOT NULL,
-        StudyProgramme_id SERIAL REFERENCES StudyProgramme (id));
+        FOREIGN KEY id 
+        StudyProgramme_id REFERENCES StudyProgramme (id));
         
     CREATE TABLE Lecture(  
         id SERIAL PRIMARY KEY,  
@@ -31,9 +32,9 @@ pool.query(`
         time time NOT NULL,
         comment text NOT NULL,
         listOfStudents char[],
-        Course_id SERIAL REFERENCES Course (id),
-        Classroom_id SERIAL REFERENCES Classroom (id),
-        User_id SERIAL REFERENCES User (id)
+        Course_id REFERENCES Course (id),
+        Classroom_id REFERENCES Classroom (id),
+        User_id REFERENCES User (id)
         );
     
         
