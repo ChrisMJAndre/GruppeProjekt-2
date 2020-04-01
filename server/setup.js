@@ -1,44 +1,44 @@
 const pool = require('./db');
 pool.query(`
     CREATE TABLE Classroom(
-        id SERIAL NOT NULL,
+        id int NOT NULL,
         size INT NOT NULL,
         location text NOT NULL,
-        PRIMARY KEY(id));
+        CONSTRAINT PK_Classroom PRIMARY KEY(id, size, location));
     
     CREATE TABLE StudyProgramme( 
-        id SERIAL NOT NULL,
+        id int NOT NULL,
         title text NOT NULL,
-        PRIMARY KEY(id));
+        CONSTRAINT PK_StudyProgramme PRIMARY KEY(id, title));
     
     CREATE TABLE Course(  
-        id SERIAL NOT NULL,  
+        id int NOT NULL,  
         title text NOT NULL, 
         semester INT NOT NULL, 
-        PRIMARY KEY(id),
-        CONSTRAINT FOREIGN KEY (id) REFERENCES StudyProgramme(id));
+        CONSTRAINT PK_Course PRIMARY KEY(id, title, semester, FK_StudyProgramme),
+        CONSTRAINT FK_StudyProgramme FOREIGN KEY (id) REFERENCES StudyProgramme(id));
     
     CREATE TABLE User(
-        id SERIAL NOT NULL,
+        id int NOT NULL,
         firstName text NOT NULL, 
         lastName text NOT NULL, 
         email text NOT NULL, 
         phoneNumber INT NOT NULL, 
         type text NOT NULL,
-        PRIMARY KEY(id),
-        CONSTRAINT FOREIGN KEY (id) REFERENCES StudyProgramme(id));
+        CONSTRAINT PK_User PRIMARY KEY(id, firstName, lastName, email, phoneNumber, type, FK_StudyProgramme),
+        CONSTRAINT FK_StudyProgramme FOREIGN KEY (id) REFERENCES StudyProgramme(id));
         
     CREATE TABLE Lecture(  
-        id SERIAL NOT NULL,  
+        id int NOT NULL,  
         lectureName text NOT NULL, 
         date date NOT NULL,
         time time NOT NULL,
         comment text NOT NULL,
         listOfStudents char[],
-        PRIMARY KEY(id),
-        CONSTRAINT FOREIGN KEY (id) REFERENCES Course(id),
-        CONSTRAINT FOREIGN KEY (id) REFERENCES Classroom(id),
-        CONSTRAINT FOREIGN KEY (id) REFERENCES User(id)
+        CONSTRAINT PK_Lecture PRIMARY KEY(id, lectureName, date, time, comment, listOfStudents, FK_Course, FK_Classroom, FK_User),
+        CONSTRAINT FK_Course FOREIGN KEY (id) REFERENCES Course(id),
+        CONSTRAINT FK_Classroom FOREIGN KEY (id) REFERENCES Classroom(id),
+        CONSTRAINT FK_User FOREIGN KEY (id) REFERENCES User(id)
         );
     
         
