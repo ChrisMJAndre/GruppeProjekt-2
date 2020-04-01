@@ -7,11 +7,11 @@ const ejs = require('ejs');
 app.set('views', __dirname + '/client/views');
 app.set('view engine', 'ejs');
 
-const pg = require('pg')
-const connectionString = "postgres://userName:password@serverName/ip:port/nameOfDatabase;"
-//Her skal vi ændre userName, password, serverName, port og nameOfDatabase
-const pgClient = new pg.Client(connectionString);
-pg.Client.connect();
+// const pg = require('pg')
+// const connectionString = "postgres://userName:password@serverName/ip:port/nameOfDatabase;"
+// //Her skal vi ændre userName, password, serverName, port og nameOfDatabase
+// const pgClient = new pg.Client(connectionString);
+// pg.Client.connect();
 
 /* og så noget i stil med det her:
 const query = pgClient.query("SELECT id from xx where xx = xx")
