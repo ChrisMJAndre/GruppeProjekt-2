@@ -1,40 +1,44 @@
 const pool = require('./db');
 pool.query(`
     CREATE TABLE Classroom(
-        id SERIAL PRIMARY KEY,
+        Classroomid int,
         size INT NOT NULL,
-        location text NOT NULL);
+        location text NOT NULL,
+        PRIMARY KEY(Classroomid));
     
     CREATE TABLE StudyProgramme( 
-        id SERIAL PRIMARY KEY,
-        title text NOT NULL);
+        StudyProgrammeid int,
+        title text NOT NULL,
+        PRIMARY KEY(StudyProgrammeid));
     
     CREATE TABLE Course(  
-        id SERIAL PRIMARY KEY,  
+        Courseid int,  
         title text NOT NULL, 
         semester INT NOT NULL, 
-        StudyProgramme_id REFERENCES StudyProgramme (id));
+        PRIMARY KEY(Courseid),
+        FOREIGN KEY (StudyProgrammeid) REFERENCES StudyProgramme(StudyProgrammeid));
     
     CREATE TABLE User(
-        id SERIAL PRIMARY KEY,
+        Userid int,
         firstName text NOT NULL, 
         lastName text NOT NULL, 
         email text NOT NULL, 
         phoneNumber INT NOT NULL, 
         type text NOT NULL,
-        FOREIGN KEY id 
-        StudyProgramme_id REFERENCES StudyProgramme (id));
+        PRIMARY KEY(Userid),
+        FOREIGN KEY (StudyProgrammeid) REFERENCES StudyProgramme(StudyProgrammeid));
         
     CREATE TABLE Lecture(  
-        id SERIAL PRIMARY KEY,  
+        Lectureid int,  
         lectureName text NOT NULL, 
         date date NOT NULL,
         time time NOT NULL,
         comment text NOT NULL,
         listOfStudents char[],
-        Course_id REFERENCES Course (id),
-        Classroom_id REFERENCES Classroom (id),
-        User_id REFERENCES User (id)
+        PRIMARY KEY(Lectureid),
+        FOREIGN KEY (Courseid) REFERENCES Course(Courseid));
+        FOREIGN KEY (Classroomid) REFERENCES Classroom(Classroomid));
+        FOREIGN KEY (Userid) REFERENCES User(Userid));
         );
     
         
