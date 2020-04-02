@@ -6,9 +6,11 @@ pool.query(`
         size INT NOT NULL,
         location text NOT NULL);
     
+    
     CREATE TABLE StudyProgramme(
         id INT PRIMARY KEY,
         title text NOT NULL);
+    
     
     CREATE TABLE Course(
         id INT PRIMARY KEY,
@@ -16,9 +18,11 @@ pool.query(`
         semester INT NOT NULL,
         StudyProgramme_id INT REFERENCES StudyProgramme (id));
     
+    
     CREATE TABLE UserType(
         id INT PRIMARY KEY,
         title text NOT NULL);
+    
     
     CREATE TABLE Users(
         id INT PRIMARY KEY,
@@ -29,11 +33,12 @@ pool.query(`
         UserType_id INT REFERENCES UserType (id),
         StudyProgramme_id INT REFERENCES StudyProgramme (id));
     
+    
     CREATE TABLE SignUp(
         id INT PRIMARY KEY,
         Users_id INT REFERENCES Users (id));
      
-    
+     
     CREATE TABLE Lecture(
         id INT PRIMARY KEY,
         lectureName text NOT NULL,
@@ -43,8 +48,9 @@ pool.query(`
         Course_id INT REFERENCES Course (id),
         Classroom_id INT REFERENCES Classroom (id),
         Users_id INT REFERENCES Users (id),
-        SignUp_id INT REFERENCES SignUp (id)
-    );
+        SignUp_id INT REFERENCES SignUp (id));
+        
+        
     ALTER TABLE SignUp
         ADD Lecture_id INT REFERENCES Lecture (id);
 
@@ -53,8 +59,3 @@ pool.query(`
     console.log(error, result);
 });
 
-/*
-Denne skal insert ind i signup
- Lecture_id INT REFERENCES Lecture (id));
-
- */
