@@ -1,5 +1,5 @@
 // A document where we set the general tables up
-const pool = require('./db');
+const pool = require('../db');
 pool.query(`
 
     CREATE TABLE Classroom(
@@ -61,3 +61,6 @@ pool.query(`
     console.log(error, result);
 });
 
+/*
+
+ */
