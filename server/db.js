@@ -13,7 +13,7 @@ pool.query('SELECT NOW()').then(result => {
     pool.end()
 });
 
-
+/*
 //Fra: https://www.w3jar.com/node-js-login-and-registration-system-with-express-js-and-mysql/
 const mysql = require('mysql2');
 const dbConnection = mysql.createPool({
@@ -24,3 +24,5 @@ const dbConnection = mysql.createPool({
     database: 'Studenteach'      // MYSQL DB NAME
 }).promise();
 module.exports = dbConnection;
+
+ */
