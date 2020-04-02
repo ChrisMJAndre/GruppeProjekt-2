@@ -1,5 +1,4 @@
-/*
-CREATE TABLE Classroom(
+/*CREATE TABLE Classroom(
     id INT PRIMARY KEY,
     size INT NOT NULL,
     location text NOT NULL);
@@ -42,4 +41,16 @@ CREATE TABLE SignUp(
     Users_id INT REFERENCES Users (id),
     SignUp_id INT REFERENCES SignUp (id)
 );
+
+
+ALTER TABLE SignUp
+ADD CONSTRAINT FK_Lecture_id FOREIGN KEY (id) REFERENCES Lecture (id);
+
+
+
+
+
+DROP ALT SHIT
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
 */
