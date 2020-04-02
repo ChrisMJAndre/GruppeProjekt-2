@@ -1,3 +1,5 @@
+// Here we insert all of the data (the hardcoded data)
+
 const pool = require('./db');
 pool.query(`
     
