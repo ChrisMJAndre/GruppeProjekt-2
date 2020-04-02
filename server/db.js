@@ -29,3 +29,4 @@ pool.query('SELECT NOW()').then(result => {
 //     console.log(result.rows)
 //     dbConnection.end()
 // });
+

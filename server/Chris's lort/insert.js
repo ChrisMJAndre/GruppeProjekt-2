@@ -25,7 +25,7 @@ pool.query(`
                 ('201', '40', 'Flintholm'), 
                 ('202', '60', 'Dalgas Have'),
                 ('203', '90', 'Porcelænshaven'),
-                ('200', '50', 'Kilen');   
+                ('204', '50', 'Kilen');   
         
     
     /* Insert courses into the Course Table */
@@ -53,8 +53,16 @@ pool.query(`
                 ('604', 'Erhvervsmatematik hjælp', '2020/02/13', '19:00', 'comment?', '108', '204', '304', '4');                                                                
     
     
+    /* Insert Users into the Users Table, not all users */
+    INSERT INTO Users (id, firstName, lastName, passWord, email, phoneNumber, UserType_id, StudyProgramme_id) 
+        VALUES 
+                ('300', 'Niklas', 'Lykke-Bøndergaard', '1234', 'Nily19ab@student.cbs.dk', '31320232', '1','1')
     
     
+    
+        
+     
+        
         
     /* Insert signup into the SignUp Table, no hardcoded data, here the table should gather the data on its own */
     /* TABLE Signup */
