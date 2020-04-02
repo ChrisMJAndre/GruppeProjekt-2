@@ -11,12 +11,10 @@ const bcryptjs = require('bcryptjs');
 // const { body, validationResult } = require('express-validator');
 // const mysql = require('mysql2');
 
-
-
 app.set('views', __dirname + '/client/views');
 app.set('view engine', 'ejs');
 
-Her startes serveren(indtil videre)
+//Her startes serveren(indtil videre)
 app.use(express.static('public'));
 const server = http.createServer(app);
 server.listen(4000, () => {
@@ -30,6 +28,14 @@ const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthen
 
 //Her importeres controllers
 const UserController = require('./client/controllers/UserController')
+
+//Styrer hvad man kan se alt efter om man er logget ind eller ej.
+global.loggedIn = null;
+app.use("*", (req, res, next) => {
+    loggedIn = req.session.userId;
+    next()
+});
+
 
 app.get('/', (req, res) => {
     res.render('index');
