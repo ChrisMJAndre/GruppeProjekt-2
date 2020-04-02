@@ -3,7 +3,12 @@
 const pool = require('../db');
 pool.query(`
  
-        
+     /* Insert usertypes into the UserType Table */
+    INSERT INTO UserType (id, title)
+        VALUES
+                ('1', 'Teacher'),
+                ('2', 'Student'),
+                ('3', 'Admin');
         
     /* Insert studyprogrammes into the studyProgramme Table */    
     INSERT INTO studyProgramme (id, title) 
@@ -13,7 +18,14 @@ pool.query(`
                 ('3', 'Ha(Mat.)');
 
 
-  
+    /* Insert classrooms into the Classroom Table */
+    INSERT INTO Classroom (id, size, location) 
+        VALUES 
+                ('200', '50', 'Solbjerg Plads'),
+                ('201', '40', 'Flintholm'), 
+                ('202', '60', 'Dalgas Have'),
+                ('203', '90', 'Porcelænshaven'),
+                ('200', '50', 'Kilen');   
         
     
     /* Insert courses into the Course Table */
