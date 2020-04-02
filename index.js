@@ -4,6 +4,16 @@ const reload = require('reload')
 const path = require('path');
 const app = new express();
 const ejs = require('ejs');
+const cookieSessions = require('cookie-session');
+const bcryptjs = require('bcryptjs');
+const bcrypt = require('bcrypt');
+
+const pool = require('./db');
+//Hvis ikke den virker, skal vi nok bruge: 
+const dbConnection = require('./database');
+//Og ændre det der er kommenteret ud i db.js
+//Okay vent vi skal nok lave hele index n shit om og prøve med guiden brr brr 
+
 app.set('views', __dirname + '/client/views');
 app.set('view engine', 'ejs');
 
@@ -19,11 +29,6 @@ https://www.tothenew.com/blog/connect-to-postgresql-using-javascript/?fbclid=IwA
 */
 
 
-//Ved ikke om vi skal bruge de her libraries
-const mongoose = require('mongoose');
-const session = require('express-session');
-const flash = require('connect-flash');
-const bodyParser = require('body-parser')
 
 //Sådan man connectede til mongo, men tror også vi skal bruge bodyparser?
 // mongoose.connect('mongodb+srv://Niklas107:zakko7573@cluster0-pb3ya.mongodb.net/Sunday', { useNewUrlParser: true, useUnifiedTopology: true })
