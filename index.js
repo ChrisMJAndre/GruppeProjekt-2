@@ -30,11 +30,11 @@ const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthen
 const UserController = require('./client/controllers/UserController')
 
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
-global.loggedIn = null;
-app.use("*", (req, res, next) => {
-    loggedIn = req.session.userId;
-    next()
-});
+// global.loggedIn = null;
+// app.use("*", (req, res, next) => {
+//     loggedIn = req.session.userId;
+//     next()
+// });
 
 
 app.get('/', (req, res) => {
