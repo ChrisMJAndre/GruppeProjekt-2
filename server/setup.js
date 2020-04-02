@@ -29,6 +29,7 @@ pool.query(`
         id INT PRIMARY KEY,
         firstName text NOT NULL,
         lastName text NOT NULL,
+        passWord text NOT NULL,
         email text NOT NULL,
         phoneNumber INT NOT NULL,
         UserType_id INT REFERENCES UserType (id),
