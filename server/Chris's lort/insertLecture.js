@@ -3,7 +3,7 @@ pool.query(`
 
     
     /* Insert Lectures into the Lecture Table */
-    INSERT INTO Lecture (id, lectureName, date, time, comment, Course_id, Classroom_id, Users_id, SignUp_id)
+    INSERT INTO Lecture (lectureName, date, time, comment, Course_id, Classroom_id, Users_id, SignUp_id)
         VALUES 
                 ('Programmerings hjælp', '2020/02/13', '19:00', 'comment?', '3', '1', '1', '2'), 
                 ('Organisations hjælp', '2020/02/13', '19:00', 'comment?', '4', '3', '2', '3'), 

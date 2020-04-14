@@ -3,7 +3,7 @@ pool.query(`
 
     
         /* Insert studyprogrammes into the studyProgramme Table */    
-    INSERT INTO studyProgramme (id, title) 
+    INSERT INTO studyProgramme (title) 
         VALUES 
                 ('Ha(It.)'),
                 ('Ha(Jur.)'), 

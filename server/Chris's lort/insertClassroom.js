@@ -3,7 +3,7 @@ pool.query(`
 
 
 /* Insert classrooms into the Classroom Table */
-INSERT INTO Classroom (id, size, location)
+INSERT INTO Classroom (size, location)
 VALUES
 ('50', 'Solbjerg Plads'),
     ('40', 'Flintholm'),

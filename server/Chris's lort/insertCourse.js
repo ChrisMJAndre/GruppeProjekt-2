@@ -2,7 +2,7 @@ const pool = require('../db');
 pool.query(`
 
         /* Insert courses into the Course Table */
-    INSERT INTO Course (id, title, semester, studyProgramme_id)
+    INSERT INTO Course (title, semester, studyProgramme_id)
         VALUES 
                 ('VØS', '1','1'),
                 ('Organisation', '1','1'),

@@ -1,7 +1,7 @@
 const pool = require('../db');
 pool.query(`
 /* Insert usertypes into the UserType Table */
-INSERT INTO UserType (id, title)
+INSERT INTO UserType (title)
 VALUES
 ('Teacher'),
     ('Student'),
