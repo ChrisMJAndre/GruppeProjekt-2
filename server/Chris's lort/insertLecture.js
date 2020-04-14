@@ -3,13 +3,13 @@ pool.query(`
 
     
     /* Insert Lectures into the Lecture Table */
-    INSERT INTO Lecture (lectureName, date, time, comment, Course_id, Classroom_id, Users_id, SignUp_id)
+    INSERT INTO Lecture (lectureName, date, time, comment, Course_id, Classroom_id, Users_id)
         VALUES 
-                ('Programmerings hjælp', '2020/02/13', '19:00', 'comment?', '3', '1', '1', '2'), 
-                ('Organisations hjælp', '2020/02/13', '19:00', 'comment?', '4', '3', '2', '3'), 
-                ('VØS hjælp', '2020/02/13', '19:00', 'comment?', '1', '1', '4', '1'), 
-                ('How to be a laywer', '2020/02/13', '19:00', 'comment?', '6', '2', '3', '4'), 
-                ('Erhvervsmatematik hjælp', '2020/02/13', '19:00', 'comment?', '9', '5', '5', '5');
+                ('Programmerings hjælp', '2020/02/13', '19:00', 'comment?', '3', '1', '1'), 
+                ('Organisations hjælp', '2020/02/13', '19:00', 'comment?', '4', '3', '2'), 
+                ('VØS hjælp', '2020/02/13', '19:00', 'comment?', '1', '1', '4'), 
+                ('How to be a laywer', '2020/02/13', '19:00', 'comment?', '6', '2', '3'), 
+                ('Erhvervsmatematik hjælp', '2020/02/13', '19:00', 'comment?', '9', '5', '5');
     
     
     
