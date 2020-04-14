@@ -5,11 +5,11 @@ pool.query(`
 /* Insert classrooms into the Classroom Table */
 INSERT INTO Classroom (id, size, location)
 VALUES
-('200', '50', 'Solbjerg Plads'),
-    ('201', '40', 'Flintholm'),
-    ('202', '60', 'Dalgas Have'),
-    ('203', '90', 'Porcelænshaven'),
-    ('200', '50', 'Kilen'); 
+('50', 'Solbjerg Plads'),
+    ('40', 'Flintholm'),
+    (60', 'Dalgas Have'),
+    ('90', 'Porcelænshaven'),
+    ('50', 'Kilen'); 
     
     
     

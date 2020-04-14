@@ -5,9 +5,9 @@ pool.query(`
         /* Insert studyprogrammes into the studyProgramme Table */    
     INSERT INTO studyProgramme (id, title) 
         VALUES 
-                ('1', 'Ha(It.)'),
-                ('2', 'Ha(Jur.)'), 
-                ('3', 'Ha(Mat.)');
+                ('Ha(It.)'),
+                ('Ha(Jur.)'), 
+                ('Ha(Mat.)');
     
     
     
