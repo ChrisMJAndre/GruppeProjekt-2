@@ -3,21 +3,25 @@ const pool = require('../db');
 pool.query(`
 
     CREATE TABLE Classroom(
-        id SERIAL PRIMARY KEY,
+        id SERIAL,
         size INT NOT NULL,
-        location text NOT NULL);
+        location text NOT NULL,
+        PRIMARY KEY (id));
     
     
     CREATE TABLE StudyProgramme(
-        id SERIAL PRIMARY KEY,
-        title text NOT NULL);
+        id SERIAL,
+        title text NOT NULL,
+        PRIMARY KEY (id));
     
     
     CREATE TABLE Course(
-        id SERIAL PRIMARY KEY,
+        id SERIAL,
         title text NOT NULL,
         semester INT NOT NULL,
-        StudyProgramme_id SERIAL REFERENCES StudyProgramme (id));
+        studyprogramme_id INT NOT NULL,
+        PRIMARY KEY (id),
+        CONSTRAINT fk_studyprogramme_id FOREIGN KEY (studyprogramme_id) REFERENCES Studyprogramme(id));
     
     
     CREATE TABLE UserType(
