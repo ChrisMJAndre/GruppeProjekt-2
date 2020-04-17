@@ -24,40 +24,55 @@ pool.query(`
         CONSTRAINT fk_studyprogramme_id FOREIGN KEY (studyprogramme_id) REFERENCES Studyprogramme(id));
     
     
-    CREATE TABLE UserType(
-        id SERIAL PRIMARY KEY,
-        title text NOT NULL);
     
-    
-    CREATE TABLE Users(
-        id SERIAL PRIMARY KEY,
+    CREATE TABLE Student(
+        id SERIAL,
         firstName text NOT NULL,
         lastName text NOT NULL,
         passWord text NOT NULL,
         email text NOT NULL,
         phoneNumber INT NOT NULL,
-        UserType_id SERIAL REFERENCES UserType (id),
-        StudyProgramme_id SERIAL REFERENCES StudyProgramme (id));
+        studyprogramme_id INT NOT NULL,
+        PRIMARY KEY (id), 
+        CONSTRAINT fk_studyprogramme_id FOREIGN KEY (studyprogramme_id) REFERENCES Studyprogramme(id));
+    
+    
+    
+    CREATE TABLE Teacher(
+        id SERIAL,
+        firstName text NOT NULL,
+        lastName text NOT NULL,
+        passWord text NOT NULL,
+        email text NOT NULL,
+        phoneNumber INT NOT NULL,
+        studyprogramme_id INT NOT NULL,
+        PRIMARY KEY (id),
+        CONSTRAINT fk_studyprogramme_id FOREIGN KEY (studyprogramme_id) REFERENCES Studyprogramme(id));
+    
     
     
     CREATE TABLE SignUp(
-        id SERIAL PRIMARY KEY,
-        Users_id SERIAL REFERENCES Users (id));
-     
+        id SERIAL,
+        student_id INT NOT NULL,
+        PRIMARY KEY (id),
+        CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES Student(id));
      
     CREATE TABLE Lecture(
-        id SERIAL PRIMARY KEY,
+        id SERIAL,
         lectureName text NOT NULL,
         date date NOT NULL,
         time time NOT NULL,
         comment text NOT NULL,
-        Course_id SERIAL REFERENCES Course (id),
-        Classroom_id SERIAL REFERENCES Classroom (id),
-        Users_id SERIAL REFERENCES Users (id));
+        signup_id INT NOT NULL, 
+        teacher_id INT NOT NULL, 
+        classroom_id INT NOT NULL, 
+        course_id INT NOT NULL,
+        PRIMARY KEY (id),
+        CONSTRAINT fk_signup_id FOREIGN KEY (signup_id) REFERENCES SignUp(id),
+        CONSTRAINT fk_teacher_id FOREIGN KEY (teacher_id) REFERENCES Teacher(id),
+        CONSTRAINT fk_classroom_id FOREIGN KEY (classroom_id) REFERENCES Classroom(id),
+        CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES Course(id));
         
-        
-    ALTER TABLE SignUp
-        ADD Lecture_id SERIAL REFERENCES Lecture (id);
 
 
 `).then(result => {
