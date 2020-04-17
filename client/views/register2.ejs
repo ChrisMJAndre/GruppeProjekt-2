@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); -%>
+
+<body>
+
+<div>
+    <% if(errors != null && errors.length > 0){%>
+    <ul></ul>
+    <% for (var i = 0; i < errors.length; i++) {%>
+    <li><%= errors[i]%></li>
+    <% } %>
+    </ul>
+    <% } %>
+    <form action="/users" method="POST" enctype="multipart/form-data">
+              <div>    
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Name" id="name"
+                    name="name" value="<%= name %>">
+            </div>
+        <div>
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email"
+                    placeholder="Email" value="<%= email %>">
+            </div>
+        <br>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+</div>
