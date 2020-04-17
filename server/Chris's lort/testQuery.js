@@ -16,3 +16,4 @@ Alter Table lecture add comlumm listOfStudents id VALUE alt det der med contrain
 add to columm listofstudent SELECET from listOfStudents WHERE lecture_id = something
         `).then(result => {
     console.log(error, result);
+});
