@@ -50,25 +50,17 @@ pool.query(`
         CONSTRAINT fk_studyprogramme_id FOREIGN KEY (studyprogramme_id) REFERENCES Studyprogramme(id));
     
     
-    
-    CREATE TABLE SignUp(
-        id SERIAL,
-        student_id INT NOT NULL,
-        PRIMARY KEY (id),
-        CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES Student(id));
      
     CREATE TABLE Lecture(
         id SERIAL,
         lectureName text NOT NULL,
         date date NOT NULL,
         time time NOT NULL,
-        comment text NOT NULL,
-        signup_id INT NOT NULL, 
+        comment text NOT NULL, 
         teacher_id INT NOT NULL, 
         classroom_id INT NOT NULL, 
         course_id INT NOT NULL,
         PRIMARY KEY (id),
-        CONSTRAINT fk_signup_id FOREIGN KEY (signup_id) REFERENCES SignUp(id),
         CONSTRAINT fk_teacher_id FOREIGN KEY (teacher_id) REFERENCES Teacher(id),
         CONSTRAINT fk_classroom_id FOREIGN KEY (classroom_id) REFERENCES Classroom(id),
         CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES Course(id));
