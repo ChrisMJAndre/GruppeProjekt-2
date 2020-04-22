@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/headerTeacher'); -%>
+  <body>
+    <h1><%= lecture.lecturename %></h1>
+    <%- include('layouts/navTeacher'); -%>
+
+    <main>
+      <div class="lecture-information">
+        <h2><%= lecture.lecturename %></h2>
+        <time><%= lecture.formattedDate %> - <%= lecture.time %></time>
+        <p><%= lecture.firstname %> <%= lecture.lastname %></p>
+        <p><%= lecture.location %></p>
+        <p><%= lecture.title %></p>
+        <p><%= lecture.comment %></p>
+      </div>
+    </main>
+
+    <% if (user.userType === 'teacher' && user.id === lecture.teacher_id){ %>
+    <div id="removeLecture">
+      <button onclick="deleteLecture(<%= lecture.id %>)">
+        Delete lecture
+      </button>
+    </div>
+
+    <script>
+      function deleteLecture(lectureId) {
+        fetch("/lecture/" + lectureId, {
+          method: "DELETE",
+        })
+          .then(() => {
+            window.location.replace("/lectures");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    </script>
+    <% } %> <%- include('layouts/scripts'); -%>
+  </body>
+</html>

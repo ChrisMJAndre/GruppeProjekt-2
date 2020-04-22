@@ -11,6 +11,7 @@ const bcryptjs = require('bcryptjs');
 // const dbConnection = require('./server/db');
 // const { body, validationResult } = require('express-validator');
 const bodyParser = require('body-parser');
+const moment = require('moment');
 
 const flash = require('connect-flash');
 
@@ -45,11 +46,10 @@ const loginController = require('./client/controllers/login')
 const LectureController = require('./client/controllers/LectureController')
 
 
+
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
 // global.loggedIn = null;
 // app.use("*", (req, res, next) => {
-//     console.log(req.session.user);
-//     loggedIn = req.session.userId;
 //     next()
 // });
 
@@ -78,7 +78,12 @@ app.get('/student', (req, res) => {
 app.get('/admin', (req, res) => {
     res.render('admin');
 })
-app.get('/teacher', authMiddleware('teacher'), (req, res) => {
+app.get('/lecture/:id', authMiddleware(['teacher', 'student']), LectureController.show);
+app.delete('/lecture/:id', authMiddleware(['teacher']), LectureController.destroy)
+
+app.get('/lectures', authMiddleware(['teacher', 'student']), LectureController.index);
+
+app.get('/teacher', authMiddleware(['teacher']), (req, res) => {
     res.render('teacher');
 })
 app.get('/removeStudent', (req, res) => {
@@ -88,7 +93,15 @@ app.get('/removeLecture', (req, res) => {
     res.render('removeLecture');
 })
 app.get('/createLecture', (req, res) => {
-    res.render('createLecture');
+    pool.query(`SELECT * FROM classroom`).then(classroomResult => {
+        pool.query(`SELECT * FROM course`).then(courseResult => {
+            const classrooms = classroomResult.rows;
+            const courses = courseResult.rows;
+            res.render('createLecture', { classrooms, courses });
+
+        })
+    }
+    )
 })
 
 app.get('/deleteStudent', (req, res) => {
@@ -128,7 +141,8 @@ app.post('/auth/register', (req, res) => {
         TeacherController.create(req, res);
     }
 });
-app.get('/auth/login', loginController)
+app.get('/auth/login', loginController.index)
+app.get('/auth/logout', loginController.destroy)
 
 //ikke sikker på at vi kan gøre sådan her eller om der skal laves 2 loginsider, users/login ændres til teachers/login og students/login
 app.post('/users/login', UserController.post)
@@ -136,7 +150,7 @@ app.post('/users/login', UserController.post)
 //Det ville jo være fedest med 1 login side, men ellers duplicerer vi bare login ligesom vi gjorde med register
 
 //Skal gerne vise alle forelæsninger fra lecture table
-app.post('/lectures', LectureController.post)
+// app.post('/lectures', LectureController.post)
 
 //Hvis man forsøger at acces en side der ikke findes
 app.use((req, res) =>

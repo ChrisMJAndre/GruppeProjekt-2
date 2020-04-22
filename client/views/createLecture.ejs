@@ -47,11 +47,11 @@
         <label>Classroom</label>
         <select id="classroom" name="classroom">
           <option value="">Select classroom</option>
-          <option value="1">Solbjerg Plads</option>
-          <option value="2">Flintholm</option>
-          <option value="3">Dalgas Have</option>
-          <option value="4">Porcelænshaven</option>
-          <option value="5">Kilen</option>
+          <% for (const classroom of classrooms) { %>
+          <option value="<%= classroom.id %>"
+            ><%= classroom.location %> - <%= classroom.size %></option
+          >
+          <% } %>
         </select>
       </div>
 
@@ -59,18 +59,9 @@
         <!-- Her skal det indsættes fra databasen -->
         <label>Course</label>
         <select id="course" name="course">
-          <option value="">Select course</option>
-          <option value="1">VØS</option>
-          <option value="2">Organisation</option>
-          <option value="3">Programmering</option>
-          <option value="4">VØS2</option>
-          <option value="5">IT-Projektledelse</option>
-          <option value="6">Aftaleret</option>
-          <option value="7">Markedsret</option>
-          <option value="8">Forvaltningsret</option>
-          <option value="9">Erhvervsøkonomi</option>
-          <option value="10">Numerisk analyse</option>
-          <option value="11">Videnskabteori</option>
+          <% for (const course of courses) { %>
+          <option value="<%= course.id %>"><%= course.title %></option>
+          <% } %>
         </select>
       </div>
 

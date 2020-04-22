@@ -225,5 +225,3 @@ function removeStudent4() {
     var x = document.getElementById("studentsIn4");
     x.remove(x.selectedIndex);
 }
-
-

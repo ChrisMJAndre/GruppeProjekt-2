@@ -1,12 +1,19 @@
 const pool = require('../server/db');
 
-module.exports = (PERMISSION) => async (req, res, next) => {
+module.exports = PERMISSIONARR => (req, res, next) => {
 
+
+    if (!req.session.user) {
+        return res.redirect('/')
+    }
 
     const { id, userType } = req.session.user;
+    let canEnter = false
+    PERMISSIONARR.forEach(permission => {
+        if (permission == userType) canEnter = true;
+    })
 
-
-    if (userType !== 'teacher' || userType !== PERMISSION) {
+    if (!canEnter) {
         return res.send("You don't have permission.");
     } else {
         pool.query(`SELECT * FROM ${userType} WHERE id=${id}`).then(result => {

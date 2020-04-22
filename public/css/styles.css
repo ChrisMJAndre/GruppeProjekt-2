@@ -49,7 +49,7 @@ a {
   font-size: 20px;
 }
 
-ul {
+ul.nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -57,11 +57,11 @@ ul {
   background-color: rgb(100, 102, 104);
 }
 
-li {
+ul.nav > li {
   float: left;
 }
 
-li a {
+ul.nav > li a {
   display: block;
   color: white;
   text-align: center;
@@ -69,6 +69,29 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+ul.nav > li a:hover {
   background-color: #111;
+}
+
+.lecture-list {
+  list-style: none;
+  padding: 0 20px;
+  margin: 20px auto;
+}
+
+.lecture-list > li:last-child {
+  border-bottom: 1px solid #111;
+}
+
+.lecture-list > li {
+  height: 80px;
+  border-top: 1px solid #111;
+  border-right: 1px solid #111;
+  border-left: 1px solid #111;
+  padding-left: 20px;
+}
+
+.lecture-list > h3 {
+  vertical-align: center;
+  margin: auto;
 }
