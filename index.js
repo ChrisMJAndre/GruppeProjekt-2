@@ -9,7 +9,14 @@ const bcryptjs = require('bcryptjs');
 // const bcrypt = require('bcrypt');
 // const dbConnection = require('./server/db');
 // const { body, validationResult } = require('express-validator');
-// const mysql = require('mysql2');
+const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+//Import models 
+const { Student, Teacher, Lecture } = require('./sequelize')
+
+
+const app = express()
+app.use(bodyParser.json())
 
 app.set('views', __dirname + '/client/views');
 app.set('view engine', 'ejs');
@@ -88,6 +95,16 @@ app.get('/login', redirectIfAuthenticatedMiddleware, UserController.index)
 app.post('/users/login', redirectIfAuthenticatedMiddleware, UserController.post)
 
 app.get('/logout', UserController.destroy)
+
+
+app.post('/api/students', (req, res) => {
+    Student.create(req.body)
+        .then(student => res.json(student))
+})
+app.get('/api/students', (req, res) => {
+    Student.findAll().then(students => res.json(students))
+})
+
 
 //Hvis man forsøger at acces en side der ikke findes
 app.use((req, res) =>

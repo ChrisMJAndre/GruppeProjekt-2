@@ -30,8 +30,8 @@ module.exports = (sequelize, type) => {
         password: type.String,
         email: type.String,
         phoneNumber: type.String
-    }
-    });
+    })
+}
 
 // const student = sequelize.define('Student', {
 //     firstName: {
