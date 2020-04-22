@@ -15,7 +15,7 @@ const UserSchema = new Schema({
         required: [true, 'Please provide lastname'],
     },
     password: {
-        type: String,
+        type: password,
         required: [true, 'Please provide password']
     },
     email: {
@@ -26,10 +26,6 @@ const UserSchema = new Schema({
         type: Number,
         required: [true, 'Please provide phone number']
     },
-    UserType_id: {
-        type: Number,
-        
-    }
 });
 
 UserSchema.plugin(uniqueValidator);
