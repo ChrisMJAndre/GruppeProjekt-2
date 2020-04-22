@@ -10,52 +10,54 @@
       <li><a href="/">Home</a></li>
     </ul>
     <h2>Please enter your information below</h2>
-    <form id="Registration Form">
-      <input type="text" id="userName" value="" placeholder="Your username" />
-      <br />
-      <br />
-      <input type="text" id="fullName" value="" placeholder="Your full name" />
-      <br />
-      <br />
-      <input type="text" id="email" value="" placeholder="Your Email" />
-      <br />
-      <br />
-      <input type="text" id="phone" value="" placeholder="Your phone number" />
-      <br />
-      <br />
-      <input
-        type="password"
-        id="password"
-        value=""
-        placeholder="Your password"
-      />
-      <br />
-      <br />
-      <input type="radio" class="student/teacher" name="checked" checked />
-      <a>Student</a>
-      <input type="radio" class="teacher/teacher" name="checked" />
-      <a>Teacher</a>
-      <br />
+      <form action="/users/register" method="POST" enctype="multipart/form-data">
+  
+              <div>
+                  <label>First Name</label>
+                  <input type="text" placeholder="First Name" id="firstname"
+                      name="firstname" value="<%= firstname %>">
+              </div>
+              <div>
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" id="lastname"
+                    name="lastname" value="<%= lastname %>">
+            </div>
+              <div>
+                  <label>Password</label>
+                  <input type="password" id="password" name="password"
+                      placeholder="Password" value="<%= password %>">
+              </div>
+              <div>
+                <label>Email</label>
+                <input type="text" placeholder="Email" id="email"
+                    name="email" value="<%= email %>">
+            </div>
+            <div>
+              <label>Phonenumber</label>
+              <input type="text" placeholder="Phonenumber" id="phoneNumber"
+                  name="phoneNumber" value="<%= phoneNumber %>">
+          </div>
+          <div>
+            <label>Study programme</label>
+            <select id="studyProgramme" value="<%= studyProgramme %>" name="studyProgramme">
+              <option value="">Select study program</option>
+              <option value="HA(it.)">HA(it.)</option>
+              <option value="HA(jur.)">HA(jur.)</option>
+              <option value="HA(mat.)">HA(mat.)</option>
+            </select>
+        </div>
+        <div>
+          <input type="radio" class="student/teacher" name="checked" checked />
+          <a>Student</a>
+          <input type="radio" class="teacher/teacher" name="checked" />
+          <a>Teacher</a>
+        </div>
+        
+          <br>
+          <div class="form-group">
+              <button type="submit">Register</button>
 
-      <!-- Text area for additional comments -->
-      <p>Additional comments</p>
-      <textarea
-        type="text"
-        rows="5"
-        cols="30"
-        id="comment"
-        value=""
-        placeholder="Your comment here..."
-      ></textarea>
-      <br />
-      <!-- Submit button to activate some function -->
-      <button
-        type="button"
-        onclick="return validateContactInformation(), storeLogin()"
-      >
-        Register
-      </button>
-      <br />
+    
     </form>
     <script type="text/javascript" src="public\js\registration.js"></script>
     <%- include('layouts/scripts'); -%>
