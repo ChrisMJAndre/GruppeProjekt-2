@@ -8,12 +8,14 @@
     <h1>Welcome to StudentTeach</h1>
     <ul>
       <li><a href="/admin">Admin</a></li>
+      <% if (userType == 'teacher') { %>
       <li><a href="/teacher">Teacher</a></li>
+      <% } %> <% if (userType == 'student') { %>
       <li><a href="/student">Student</a></li>
-      <li><a href="/registerStudent">Register - Student </a></li>
-      <li><a href="/registerTeacher">Register - Teacher</a></li>
-      <li><a href="/loginStudent">Login - Student</a></li>
-      <li><a href="/loginTeacher">Login - Teacher</a></li>
+      <% } %> <% if (!isLoggedIn) { %>
+      <li><a href="/register">Register </a></li>
+      <li><a href="/login">Login</a></li>
+      <% } %>
     </ul>
     <%- include('layouts/scripts'); -%>
   </body>

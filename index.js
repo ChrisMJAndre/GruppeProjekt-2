@@ -35,43 +35,42 @@ reload(app);
 
 
 //Her kan vi importere middleware
-// const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
-// const authMiddleware = require('./middleware/authMiddleware');
+const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
+const authMiddleware = require('./middleware/authMiddleware');
 
 //Her importeres controllers
-const StudentController = require('./client/controllers/StudentController')
+const UserController = require('./client/controllers/UserController')
 const TeacherController = require('./client/controllers/TeacherController')
 const loginController = require('./client/controllers/login')
 const LectureController = require('./client/controllers/LectureController')
 
 
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
-global.loggedIn = null;
-app.use("*", (req, res, next) => {
-    loggedIn = req.session.studentId;
-    next()
-});
-global.loggedIn = null;
-app.use("*", (req, res, next) => {
-    loggedIn = req.session.teacherId;
-    next()
-});
+// global.loggedIn = null;
+// app.use("*", (req, res, next) => {
+//     console.log(req.session.user);
+//     loggedIn = req.session.userId;
+//     next()
+// });
+
+
 
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        isLoggedIn: !!req.session.user,
+        userType: req.session.user ? req.session.user.userType : null
+    });
 })
-app.get('/loginStudent', (req, res) => {
-    res.render('loginStudent');
+app.get('/login', (req, res) => {
+    res.render('login');
 })
-app.get('/loginTeacher', (req, res) => {
-    res.render('loginTeacher');
-})
-app.get('/registerStudent', (req, res) => {
-    res.render('registerStudent');
-})
-app.get('/registerTeacher', (req, res) => {
-    res.render('registerTeacher');
+app.get('/register', redirectIfAuthenticatedMiddleware, (req, res) => {
+    pool.query(`SELECT * FROM studyProgramme`).then(result => {
+        const studyProgrammes = result.rows;
+        res.render('register', { studyProgrammes });
+    }
+    )
 })
 app.get('/student', (req, res) => {
     res.render('student');
@@ -79,7 +78,7 @@ app.get('/student', (req, res) => {
 app.get('/admin', (req, res) => {
     res.render('admin');
 })
-app.get('/teacher', (req, res) => {
+app.get('/teacher', authMiddleware('teacher'), (req, res) => {
     res.render('teacher');
 })
 app.get('/removeStudent', (req, res) => {
@@ -117,23 +116,23 @@ app.get('/showTeacherInformation', (req, res) => {
 // app.get('/logout', UserController.destroy)
 
 
-app.post('/api/teachers', (req, res) => {
-    TeacherController.create(req, res)
-})
-
-app.post('/api/students', (req, res) => {
-    StudentController.create(req, res)
-})
 
 app.post('/api/lectures', (req, res) => {
     LectureController.create(req, res)
 })
 
+app.post('/auth/register', (req, res) => {
+    if (req.body.isStudent == 'true') {
+        UserController.create(req, res);
+    } else {
+        TeacherController.create(req, res);
+    }
+});
 app.get('/auth/login', loginController)
 
 //ikke sikker på at vi kan gøre sådan her eller om der skal laves 2 loginsider, users/login ændres til teachers/login og students/login
-app.post('/students/login', StudentController.post)
-app.post('/teachers/login', TeacherController.post)
+app.post('/users/login', UserController.post)
+// app.post('/teachers/login', TeacherController.post)
 //Det ville jo være fedest med 1 login side, men ellers duplicerer vi bare login ligesom vi gjorde med register
 
 //Skal gerne vise alle forelæsninger fra lecture table

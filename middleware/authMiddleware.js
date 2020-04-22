@@ -1,17 +1,19 @@
-const Student = require('../client/models/Student')
-const Teacher = require('../client/models/Teacher')
+const pool = require('../server/db');
 
-module.exports = (req, res, next) => {
-    Student.findById(req.session.studentId, (error, student) => {
-        if (error || !student)
-            return res.redirect('/')
+module.exports = (PERMISSION) => async (req, res, next) => {
 
-        next()
-    }),
-        Teacher.findById(req.session.studentId, (error, teacher) => {
-            if (error || !teacher)
-                return res.redirect('/')
 
-            next()
+    const { id, userType } = req.session.user;
+
+
+    if (userType !== 'teacher' || userType !== PERMISSION) {
+        return res.send("You don't have permission.");
+    } else {
+        pool.query(`SELECT * FROM ${userType} WHERE id=${id}`).then(result => {
+            req.user = result.rows[0];
+            next();
+        }).catch(() => {
+            return res.send('Something went wrong');
         })
+    }
 }

@@ -8,7 +8,7 @@ module.exports = {
 ($1, $2, $3, $4, $5, $6) RETURNING *`, [req.body.firstName, req.body.lastName,
         req.body.password, req.body.email, req.body.phoneNumber, req.body.studyProgramme]
         ).then(result => {
-            console.log(result.rows);
+            // console.log(result.rows);
             res.redirect('/')
         })
     },
@@ -17,7 +17,8 @@ module.exports = {
         pool.query(`SELECT * FROM teacher WHERE email LIKE $1`, [email])
             .then(result => {
                 const teacher = result.rows[0]
-                console.log(result);
+                console.log(req.session);
+                // console.log(result);
                 if (teacher) {
                     if (teacher.password == password) {
                         req.session.studentId = teacher._id

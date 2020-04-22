@@ -11,7 +11,7 @@
     </ul>
     <h2>Please enter your information below</h2>
     <form
-      action="/api/students"
+      action="/auth/register"
       method="POST"
       enctype="application/x-www-form-urlencoded"
     >
@@ -60,17 +60,26 @@
         <label>Study programme</label>
         <select id="studyProgramme" name="studyProgramme">
           <option value="">Select study program</option>
-          <option value="1">HA(it.)</option>
-          <option value="2">HA(jur.)</option>
-          <option value="3">HA(mat.)</option>
+          <!-- <%= studyProgrammes %> -->
+          <% for (const studyProgramme of studyProgrammes) { %>
+          <option value="<%= studyProgramme.id %>"
+            ><%= studyProgramme.title %></option
+          >
+          <% } %>
         </select>
       </div>
-      <!-- <div>
-          <input type="radio" name="checked" id="student" checked />
-          <a>Student</a>
-          <input type="radio" name="checked" id="teacher" />
-          <a>Teacher</a>
-        </div> -->
+      <div>
+        <input
+          type="radio"
+          value="true"
+          name="isStudent"
+          id="student"
+          checked
+        />
+        <a>Student</a>
+        <input type="radio" value="false" name="isStudent" id="teacher" />
+        <a>Teacher</a>
+      </div>
 
       <button type="submit">Register</button>
     </form>
