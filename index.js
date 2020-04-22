@@ -1,4 +1,5 @@
 const express = require('express');
+const pool = require('./server/db');
 const http = require('http')
 const reload = require('reload')
 const path = require('path');
@@ -9,10 +10,8 @@ const bcryptjs = require('bcryptjs');
 // const bcrypt = require('bcrypt');
 // const dbConnection = require('./server/db');
 // const { body, validationResult } = require('express-validator');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-//Import models 
-const { Student, Teacher } = require('./sequelize')
+
 const flash = require('connect-flash');
 
 
@@ -108,9 +107,9 @@ app.get('/api/teachers', (req, res) => {
 })
 
 app.post('/api/students', (req, res) => {
-    Student.create(req.body)
-        .then(student => res.json(student))
+    StudentController.create(req,res)
 })
+
 app.get('/api/students', (req, res) => {
     Student.findAll().then(students => res.json(students))
 })

@@ -10,7 +10,7 @@
       <li><a href="/">Home</a></li>
     </ul>
     <h2>Please enter your information below</h2>
-    <form action="/api/students" method="POST" enctype="multipart/form-data">
+    <form action="/api/students" method="POST" enctype="application/x-www-form-urlencoded">
       <div>
         <label>First Name</label>
         <input
@@ -56,9 +56,9 @@
         <label>Study programme</label>
         <select id="studyProgramme" name="studyProgramme">
           <option value="">Select study program</option>
-          <option value="HA(it.)">HA(it.)</option>
-          <option value="HA(jur.)">HA(jur.)</option>
-          <option value="HA(mat.)">HA(mat.)</option>
+          <option value="1">HA(it.)</option>
+          <option value="2">HA(jur.)</option>
+          <option value="3">HA(mat.)</option>
         </select>
       </div>
       <!-- <div>
