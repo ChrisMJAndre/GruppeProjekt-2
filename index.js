@@ -42,14 +42,20 @@ reload(app);
 const StudentController = require('./client/controllers/StudentController')
 const TeacherController = require('./client/controllers/TeacherController')
 const loginController = require('./client/controllers/login')
+const LectureController = require('./client/controllers/LectureController')
 
 
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
-// global.loggedIn = null;
-// app.use("*", (req, res, next) => {
-//     loggedIn = req.session.userId;
-//     next()
-// });
+global.loggedIn = null;
+app.use("*", (req, res, next) => {
+    loggedIn = req.session.studentId;
+    next()
+});
+global.loggedIn = null;
+app.use("*", (req, res, next) => {
+    loggedIn = req.session.teacherId;
+    next()
+});
 
 
 app.get('/', (req, res) => {
@@ -109,17 +115,26 @@ app.get('/showTeacherInformation', (req, res) => {
 
 
 app.post('/api/teachers', (req, res) => {
-    TeacherController.create(req,res)
+    TeacherController.create(req, res)
 })
 
 app.post('/api/students', (req, res) => {
-    StudentController.create(req,res)
+    StudentController.create(req, res)
 })
+
+app.post('api/lectures', (req, res) => {
+    LectureController.create(req, res)
+})
+
 app.get('/auth/login', loginController)
 
+//ikke sikker på at vi kan gøre sådan her eller om der skal laves 2 loginsider, users/login ændres til teachers/login og students/login
 app.post('/users/login', StudentController.post)
+app.post('/users/login', TeacherController.post)
+//Det ville jo være fedest med 1 login side, men ellers duplicerer vi bare login ligesom vi gjorde med register
 
-
+//Skal gerne vise alle forelæsninger fra lecture table
+app.post('/lectures', LectureController.post)
 
 //Hvis man forsøger at acces en side der ikke findes
 app.use((req, res) =>

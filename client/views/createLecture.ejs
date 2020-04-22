@@ -5,96 +5,97 @@
     <h1>Create lecture</h1>
     <%- include('layouts/navTeacher'); -%>
     <h2>Create lecture</h2>
-    <form name="Create Lecture">
+    <form
+      name="Create Lecture"
+      action="/api/lectures"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"
+    >
       <!-- Text fields -->
-      <p>Teacher name</p>
-      <input type="text" id="teacher1" value="" placeholder="Your name" />
-      <br />
-
-      <!-- Dropdown lists -->
-      <p>Study program</p>
-      <select id="studyProgram">
-        <option selected disabled>Select study program</option>
-        <option value="HA(it.)">HA(it.)</option>
-        <option value="HA(jur.)">HA(jur.)</option>
-        <option value="HA(fil.)">HA(fil.)</option>
-        <option value="HA(mat.)">HA(mat.)</option>
-        <option value="HA(pro.)">HA pro.</option>
-        <option value="HA(kom.)">HA(kom.)</option>
-        <option value="HA(psyk.)">HA(psyk.)</option>
-      </select>
-      <br />
-
-      <p>Course</p>
-      <select id="course">
-        <option selected disabled>Select course</option>
-        <option value="BIS"
-          >Introduction to Informations Systems and Informations Systems
-          Development</option
-        >
-        <option value="VØS">Virksomhedens økonomiske styring 1</option>
-        <option value="PRO"
-          >Programmering og udvikling af små systemer samt databaser</option
-        >
-        <option value="ORG"
-          >Indføring i organisationers opbygning og funktion</option
-        >
-      </select>
-      <br />
-
-      <p>Classroom</p>
-      <select id="chooseClassroom">
-        <option>Select classroom</option>
-      </select>
-
-      <br />
-      <p>Lecture Name</p>
+      <p>Lecture name</p>
       <input
         type="text"
-        name="text"
         id="lectureName"
+        name="lectureName"
         value=""
         placeholder="Lecture name"
       />
-      <p id="lName"></p>
-
-      <p>Day</p>
-      <select id="day">
-        <option selected disabled>Choose day</option>
-        <option value="Mon">Monday</option>
-        <option value="Tue">Tuesday</option>
-        <option value="Wed">Wednesday</option>
-        <option value="Thu">Thursday</option>
-        <option value="Fri">Friday</option>
-      </select>
       <br />
 
-      <p>Time of lecture</p>
-      <textarea
-        rows="1"
-        cols="15"
-        id="time"
-        placeholder="Insert time"
-      ></textarea>
-      <br />
+      <div>
+        <label>Date</label>
+        <input type="date" placeholder="Date" id="date" name="date" />
+      </div>
+
+      <div>
+        <label>Time</label>
+        <input type="time" placeholder="Time" id="time" name="time" />
+      </div>
 
       <!-- Text area for additional comments -->
-      <p>Additional comments</p>
+      <label>Additional comments</label>
       <textarea
         rows="5"
         cols="30"
         id="comment"
+        name="comment"
         placeholder="Your comment here..."
       ></textarea>
 
+      <!-- Teacher id, men der skal den tage det fra den der er logget ind? -->
+      <div>
+        <label>Teacher</label>
+        <%= req.session.teacherId = teacher._id -%>
+      </div>
+
+      <div>
+        <!-- Her skal det indsættes fra databasen -->
+        <label>Classroom</label>
+        <select id="classroom" name="classroom">
+          <option value="">Select classroom</option>
+          <option value="1">Solbjerg Plads</option>
+          <option value="2">Flintholm</option>
+          <option value="3">Dalgas Have</option>
+          <option value="4">Porcelænshaven</option>
+          <option value="5">Kilen</option>
+        </select>
+      </div>
+
+      <div>
+        <!-- Her skal det indsættes fra databasen -->
+        <label>Course</label>
+        <select id="course" name="course">
+          <option value="">Select course</option>
+          <option value="1">VØS</option>
+          <option value="2">Organisation</option>
+          <option value="3">Programmering</option>
+          <option value="4">VØS2</option>
+          <option value="5">IT-Projektledelse</option>
+          <option value="6">Aftaleret</option>
+          <option value="7">Markedsret</option>
+          <option value="8">Forvaltningsret</option>
+          <option value="9">Erhvervsøkonomi</option>
+          <option value="10">Numerisk analyse</option>
+          <option value="11">Videnskabteori</option>
+        </select>
+      </div>
+
       <!-- Submit button to create lecture -->
       <br />
-      <button id="lecture" type="button" onclick="createLecture()">
+      <button type="submit">
         Create lecture
       </button>
-      <br />
-      <br />
     </form>
+
+    <div
+      action="/lectures"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <Label>Show all lectures</Label>
+      <button type="submit">Show</button>
+    </div>
+
     <%- include('layouts/scripts'); -%>
   </body>
 </html>
