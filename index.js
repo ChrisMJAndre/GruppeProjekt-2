@@ -14,6 +14,10 @@ const bodyParser = require('body-parser');
 
 const flash = require('connect-flash');
 
+app.use(cookieSession({
+    name: 'session',
+    keys: ['key1', 'key2']
+}))
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -37,6 +41,8 @@ reload(app);
 //Her importeres controllers
 const StudentController = require('./client/controllers/StudentController')
 const TeacherController = require('./client/controllers/TeacherController')
+const loginController = require('./client/controllers/login')
+
 
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
 // global.loggedIn = null;
@@ -54,6 +60,9 @@ app.get('/login', (req, res) => {
 })
 app.get('/registerStudent', (req, res) => {
     res.render('registerStudent');
+})
+app.get('/registerTeacher', (req, res) => {
+    res.render('registerTeacher');
 })
 app.get('/student', (req, res) => {
     res.render('student');
@@ -102,21 +111,17 @@ app.get('/showTeacherInformation', (req, res) => {
 app.post('/api/teachers', (req, res) => {
     TeacherController.create(req,res)
 })
-app.get('/api/teachers', (req, res) => {
-    Teacher.findAll().then(teacher => res.json(teacher))
-})
 
 app.post('/api/students', (req, res) => {
     StudentController.create(req,res)
 })
+app.get('/auth/login', loginController)
 
-app.get('/api/students', (req, res) => {
-    Student.findAll().then(students => res.json(students))
-})
+app.post('/users/login', StudentController.post)
+
 
 
 //Hvis man forsøger at acces en side der ikke findes
 app.use((req, res) =>
     res.render('notfound'));
-
 

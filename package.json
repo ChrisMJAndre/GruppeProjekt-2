@@ -1,7 +1,6 @@
 {
   "name": "gruppeprojekt-2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -39,5 +38,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChrisMJAndre/GruppeProjekt-2.git"
-  }
+  },
+  "description": ""
 }

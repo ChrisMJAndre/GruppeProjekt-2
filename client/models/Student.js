@@ -1,6 +1,6 @@
 const bcryptjs = require('bcryptjs')
 
-/*
+
 module.exports = (sequelize, DataTypes) => {
     const Student = sequelize.define('Student', {
         id: {
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     return Student
 };
 
-*/
+
 
 // const Student = Sequelize.define('Student', {
 //     id: {
