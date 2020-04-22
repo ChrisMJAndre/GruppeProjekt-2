@@ -10,56 +10,66 @@
       <li><a href="/">Home</a></li>
     </ul>
     <h2>Please enter your information below</h2>
-      <form action="/students/register" method="POST" enctype="multipart/form-data">
-  
-              <div>
-                  <label>First Name</label>
-                  <input type="text" placeholder="First Name" id="firstname"
-                      name="firstname" value="<%= firstname %>">
-              </div>
-              <div>
-                <label>Last Name</label>
-                <input type="text" placeholder="Last Name" id="lastname"
-                    name="lastname" value="<%= lastname %>">
-            </div>
-              <div>
-                  <label>Password</label>
-                  <input type="password" id="password" name="password"
-                      placeholder="Password" value="<%= password %>">
-              </div>
-              <div>
-                <label>Email</label>
-                <input type="text" placeholder="Email" id="email"
-                    name="email" value="<%= email %>">
-            </div>
-            <div>
-              <label>Phonenumber</label>
-              <input type="text" placeholder="Phonenumber" id="phoneNumber"
-                  name="phoneNumber" value="<%= phoneNumber %>">
-          </div>
-          <div>
-            <label>Study programme</label>
-            <select id="studyProgramme" value="<%= studyProgramme %>" name="studyProgramme">
-              <option value="">Select study program</option>
-              <option value="HA(it.)">HA(it.)</option>
-              <option value="HA(jur.)">HA(jur.)</option>
-              <option value="HA(mat.)">HA(mat.)</option>
-            </select>
-        </div>
-        <div>
-          <input type="radio" class="student/teacher" name="checked" checked />
+    <form action="/api/students" method="POST" enctype="multipart/form-data">
+      <div>
+        <label>First Name</label>
+        <input
+          type="text"
+          placeholder="First Name"
+          id="firstName"
+          name="firstName"
+        />
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          id="lastName"
+          name="lastName"
+        />
+      </div>
+      <div>
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="text" placeholder="Email" id="email" name="email" />
+      </div>
+      <div>
+        <label>Phonenumber</label>
+        <input
+          type="text"
+          placeholder="Phonenumber"
+          id="phoneNumber"
+          name="phoneNumber"
+        />
+      </div>
+      <div>
+        <!-- Her skal det indsættes fra databasen -->
+        <label>Study programme</label>
+        <select id="studyProgramme" name="studyProgramme">
+          <option value="">Select study program</option>
+          <option value="HA(it.)">HA(it.)</option>
+          <option value="HA(jur.)">HA(jur.)</option>
+          <option value="HA(mat.)">HA(mat.)</option>
+        </select>
+      </div>
+      <!-- <div>
+          <input type="radio" name="checked" id="student" checked />
           <a>Student</a>
-          <input type="radio" class="teacher/teacher" name="checked" />
+          <input type="radio" name="checked" id="teacher" />
           <a>Teacher</a>
-        </div>
-        
-          <br>
-          <div class="form-group">
-              <button type="submit">Register</button>
+        </div> -->
 
-    
+      <button type="submit">Register</button>
     </form>
-    <script type="text/javascript" src="public\js\registration.js"></script>
     <%- include('layouts/scripts'); -%>
   </body>
 </html>

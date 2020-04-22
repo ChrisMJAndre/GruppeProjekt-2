@@ -1,37 +1,64 @@
 const bcryptjs = require('bcryptjs')
+const sequelize = require('sequelize')
 
-Student.beforeCreate((student, options) => {
-
-    return bcrypt.hash(student.password, 10)
-        .then(hash => {
-            student.password = hash;
-        })
-        .catch(err => {
-            throw new Error();
-        });
-});
-
-
-module.exports = (sequelize, type) => {
-    return sequelize.define('student', {
+module.exports = (sequelize, Sequelize) => {
+    const Student = sequelize.define('Student', {
         id: {
-            type: type.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         firstName: {
-            type: type.String,
-            field: 'firstname'
+            type: Sequelize.STRING,
+            field: 'firstName'
         },
         lastName: {
-            type: type.String,
-            field: 'lastname'
+            type: Sequelize.STRING,
+            field: 'lastName'
         },
-        password: type.String,
-        email: type.String,
-        phoneNumber: type.String
-    })
-}
+        password: {
+            type: Sequelize.STRING,
+            field: 'password'
+        },
+        email: {
+            type: Sequelize.STRING,
+            field: 'email'
+        },
+        phoneNumber: {
+            type: Sequelize.STRING,
+            field: 'phoneNumber'
+        }
+    });
+    return Student
+};
+
+
+
+// const Student = Sequelize.define('Student', {
+//     id: {
+//         type: Sequelize.INTEGER,
+//         primaryKey: true,
+//         autoIncrement: true
+//     },
+//     firstName: Sequelize.STRING,
+//     lastName: Sequelize.STRING,
+//     password: Sequelize.STRING,
+//     email: Sequelize.STRING,
+//     phoneNumber: Sequelize.STRING
+
+// })
+
+// module.exports = Student
+// Student.beforeCreate((student, options) => {
+
+//     return bcrypt.hash(student.password, 10)
+//         .then(hash => {
+//             student.password = hash;
+//         })
+//         .catch(err => {
+//             throw new Error();
+//         });
+// });
 
 // const student = sequelize.define('Student', {
 //     firstName: {

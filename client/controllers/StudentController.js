@@ -1,6 +1,6 @@
 //Igen eksempel fra bogen, så vi kan se hvordan det kan gøres
 
-const User = require('../models/User')
+const Student = require('../models/Student')
 const bcryptjs = require('bcryptjs')
 const path = require('path')
 
@@ -9,35 +9,35 @@ module.exports = {
         res.render('login')
     },
     async store(req, res) {
-        User.create(req.body, (error, user) => {
+        Student.create(req.body, (error, student) => {
             if (error) {
-                const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
-                req.flash('validationErrors', validationErrors)
-                req.flash('data', req.body)
-                // req.session.validationErrors = validationErrors
-                return res.redirect('/register')
+                // const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
+                // req.flash('validationErrors', validationErrors)
+                // req.flash('data', req.body)
+                req.session.validationErrors = validationErrors
+                return res.redirect('/registerStudent')
             }
             res.redirect('/')
         })
     },
     async create(req, res) {
-        var username = ""
+        var email = ""
         var password = ""
         const data = req.flash('data')[0];
         if (typeof data != "undefined") {
-            username = data.username
+            email = data.email
             password = data.password
         }
         res.render('register', {
             errors: req.flash('validationErrors'),
-            username: username,
+            email: email,
             password: password
         })
     },
     async post(req, res) {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
 
-        User.findOne({ username: username }, (error, user) => {
+        User.findOne({ email: email }, (error, user) => {
             if (user) {
                 bcryptjs.compare(password, user.password, (error, same) => {
                     if (same) {
