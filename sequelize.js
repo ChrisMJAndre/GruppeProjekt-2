@@ -12,6 +12,7 @@ const sequelize = new Sequelize('codementor', 'root', 'root', {
         idle: 10000
     }
 })
+
 const Student = StudentModel(sequelize, Sequelize)
 const Teacher = TeacherModel(sequelize, Sequelize)
 module.exports = {

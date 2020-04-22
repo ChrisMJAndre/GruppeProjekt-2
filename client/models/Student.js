@@ -9,24 +9,19 @@ module.exports = (sequelize, Sequelize) => {
             autoIncrement: true
         },
         firstName: {
-            type: Sequelize.STRING,
-            field: 'firstName'
+            type: Sequelize.STRING
         },
         lastName: {
-            type: Sequelize.STRING,
-            field: 'lastName'
+            type: Sequelize.STRING
         },
         password: {
-            type: Sequelize.STRING,
-            field: 'password'
+            type: Sequelize.STRING
         },
         email: {
-            type: Sequelize.STRING,
-            field: 'email'
+            type: Sequelize.STRING
         },
         phoneNumber: {
-            type: Sequelize.STRING,
-            field: 'phoneNumber'
+            type: Sequelize.STRING
         }
     });
     return Student
