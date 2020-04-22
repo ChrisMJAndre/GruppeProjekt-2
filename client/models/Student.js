@@ -1,28 +1,18 @@
 const bcryptjs = require('bcryptjs')
 const sequelize = require('sequelize')
 
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, DataTypes) => {
     const Student = sequelize.define('Student', {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        firstName: {
-            type: Sequelize.STRING
-        },
-        lastName: {
-            type: Sequelize.STRING
-        },
-        password: {
-            type: Sequelize.STRING
-        },
-        email: {
-            type: Sequelize.STRING
-        },
-        phoneNumber: {
-            type: Sequelize.STRING
-        }
+        firstName: DataTypes.STRING,
+        lastName: DataTypes.STRING,
+        password: DataTypes.STRING,
+        email: DataTypes.STRING,
+        phoneNumber: DataTypes.STRING
     });
     return Student
 };
