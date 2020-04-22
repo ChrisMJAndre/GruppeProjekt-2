@@ -93,7 +93,6 @@ app.get('/register', redirectIfAuthenticatedMiddleware, UserController.create)
 app.post('/users/register', redirectIfAuthenticatedMiddleware, UserController.store)
 app.get('/login', redirectIfAuthenticatedMiddleware, UserController.index)
 app.post('/users/login', redirectIfAuthenticatedMiddleware, UserController.post)
-
 app.get('/logout', UserController.destroy)
 
 
