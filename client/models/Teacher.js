@@ -1,8 +1,36 @@
-//Det her er et mongoose eksempel fra bogen, vi skal nok gøre det anderledes
-
-const { Schema, model } = require('mongoose')
-
 const bcryptjs = require('bcryptjs')
+
+Teacher.beforeCreate((teacher, options) => {
+
+    return bcrypt.hash(teacher.password, 10)
+        .then(hash => {
+            teacher.password = hash;
+        })
+        .catch(err => {
+            throw new Error();
+        });
+});
+
+module.exports = function(sequalize,type){
+    return sequelize.define('teacher', {
+        id: {
+            type: type.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        firstName: {
+            type: type.String,
+            field: 'firstname'
+        },
+        lastName: {
+            type: type.String,
+            field: 'lastname'
+        },
+        password: type.String,
+        email: type.String,
+        phoneNumber: type.String
+    })
+};
 const uniqueValidator = require('mongoose-unique-validator');
 
 const UserSchema = new Schema({

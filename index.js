@@ -97,6 +97,14 @@ app.post('/users/login', redirectIfAuthenticatedMiddleware, UserController.post)
 app.get('/logout', UserController.destroy)
 
 
+app.post('/api/teachers',(req,res)=>{
+    Teacher.create(req.body)
+        .then(teacher => res.json(teacher))
+})
+app.get('/api/teachers',(req,res)=>{
+    Teacher.findAll().then(teacher => res.json(teacher))
+})
+
 app.post('/api/students', (req, res) => {
     Student.create(req.body)
         .then(student => res.json(student))
