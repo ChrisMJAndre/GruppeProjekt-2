@@ -20,8 +20,7 @@
     "mongoose-unique-validator": "^2.0.3",
     "mysql2": "^2.1.0",
     "npm": "^6.14.3",
-    "pg": "^7.18.2",
-    "sequelize": "^5.21.6"
+    "pg": "^7.18.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",

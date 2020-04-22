@@ -1,4 +1,5 @@
 const express = require('express');
+const pool = require('./server/db');
 const http = require('http')
 const reload = require('reload')
 const path = require('path');
@@ -9,10 +10,8 @@ const bcryptjs = require('bcryptjs');
 // const bcrypt = require('bcrypt');
 // const dbConnection = require('./server/db');
 // const { body, validationResult } = require('express-validator');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-//Import models 
-const { Student, Teacher } = require('./sequelize')
+
 const flash = require('connect-flash');
 
 
@@ -37,6 +36,7 @@ reload(app);
 
 //Her importeres controllers
 const StudentController = require('./client/controllers/StudentController')
+const TeacherController = require('./client/controllers/TeacherController')
 
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
 // global.loggedIn = null;
@@ -100,17 +100,16 @@ app.get('/showTeacherInformation', (req, res) => {
 
 
 app.post('/api/teachers', (req, res) => {
-    Teacher.create(req.body)
-        .then(teacher => res.json(teacher))
+    TeacherController.create(req,res)
 })
 app.get('/api/teachers', (req, res) => {
     Teacher.findAll().then(teacher => res.json(teacher))
 })
 
 app.post('/api/students', (req, res) => {
-    Student.create(req.body)
-        .then(student => res.json(student))
+    StudentController.create(req,res)
 })
+
 app.get('/api/students', (req, res) => {
     Student.findAll().then(students => res.json(students))
 })

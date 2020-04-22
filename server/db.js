@@ -10,7 +10,6 @@ module.exports = pool;
 
 pool.query('SELECT NOW()').then(result => {
     console.log(result.rows)
-    pool.end()
 });
 
 
