@@ -42,10 +42,12 @@
         placeholder="Your comment here..."
       ></textarea>
 
-      <!-- Teacher id, men der skal den tage det fra den der er logget ind? -->
-      <div>
+      <!-- Det er her den laver fejl. Jeg vil have den til at return id på den der er logget ind. -->
+      <div name="teacher" id="teacher">
         <label>Teacher</label>
-        <%= req.session.teacherId = teacher._id -%>
+        <script>
+          req.session.teacherId = teacher._id;
+        </script>
       </div>
 
       <div>

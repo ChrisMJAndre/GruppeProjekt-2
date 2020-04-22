@@ -61,8 +61,11 @@ app.use("*", (req, res, next) => {
 app.get('/', (req, res) => {
     res.render('index');
 })
-app.get('/login', (req, res) => {
-    res.render('login');
+app.get('/loginStudent', (req, res) => {
+    res.render('loginStudent');
+})
+app.get('/loginTeacher', (req, res) => {
+    res.render('loginTeacher');
 })
 app.get('/registerStudent', (req, res) => {
     res.render('registerStudent');
@@ -122,15 +125,15 @@ app.post('/api/students', (req, res) => {
     StudentController.create(req, res)
 })
 
-app.post('api/lectures', (req, res) => {
+app.post('/api/lectures', (req, res) => {
     LectureController.create(req, res)
 })
 
 app.get('/auth/login', loginController)
 
 //ikke sikker på at vi kan gøre sådan her eller om der skal laves 2 loginsider, users/login ændres til teachers/login og students/login
-app.post('/users/login', StudentController.post)
-app.post('/users/login', TeacherController.post)
+app.post('/students/login', StudentController.post)
+app.post('/teachers/login', TeacherController.post)
 //Det ville jo være fedest med 1 login side, men ellers duplicerer vi bare login ligesom vi gjorde med register
 
 //Skal gerne vise alle forelæsninger fra lecture table
