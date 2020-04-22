@@ -1,37 +1,49 @@
 const bcryptjs = require('bcryptjs')
 
-Student.beforeCreate((student, options) => {
-
-    return bcrypt.hash(student.password, 10)
-        .then(hash => {
-            student.password = hash;
-        })
-        .catch(err => {
-            throw new Error();
-        });
-});
-
-
-module.exports = (sequelize, type) => {
-    return sequelize.define('student', {
+/*
+module.exports = (sequelize, DataTypes) => {
+    const Student = sequelize.define('Student', {
         id: {
-            type: type.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        firstName: {
-            type: type.String,
-            field: 'firstname'
-        },
-        lastName: {
-            type: type.String,
-            field: 'lastname'
-        },
-        password: type.String,
-        email: type.String,
-        phoneNumber: type.String
-    })
-}
+        firstName: DataTypes.STRING,
+        lastName: DataTypes.STRING,
+        password: DataTypes.STRING,
+        email: DataTypes.STRING,
+        phoneNumber: DataTypes.STRING
+    });
+    return Student
+};
+
+*/
+
+// const Student = Sequelize.define('Student', {
+//     id: {
+//         type: Sequelize.INTEGER,
+//         primaryKey: true,
+//         autoIncrement: true
+//     },
+//     firstName: Sequelize.STRING,
+//     lastName: Sequelize.STRING,
+//     password: Sequelize.STRING,
+//     email: Sequelize.STRING,
+//     phoneNumber: Sequelize.STRING
+
+// })
+
+// module.exports = Student
+// Student.beforeCreate((student, options) => {
+
+//     return bcrypt.hash(student.password, 10)
+//         .then(hash => {
+//             student.password = hash;
+//         })
+//         .catch(err => {
+//             throw new Error();
+//         });
+// });
 
 // const student = sequelize.define('Student', {
 //     firstName: {

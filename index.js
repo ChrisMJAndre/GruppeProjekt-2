@@ -1,22 +1,22 @@
 const express = require('express');
+const pool = require('./server/db');
 const http = require('http')
 const reload = require('reload')
 const path = require('path');
 const app = new express();
 const ejs = require('ejs');
-// const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session');
 const bcryptjs = require('bcryptjs');
 // const bcrypt = require('bcrypt');
 // const dbConnection = require('./server/db');
 // const { body, validationResult } = require('express-validator');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-//Import models 
-const { Student, Teacher, Lecture } = require('./sequelize')
+
+const flash = require('connect-flash');
 
 
-const app = express()
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.set('views', __dirname + '/client/views');
 app.set('view engine', 'ejs');
@@ -31,10 +31,11 @@ reload(app);
 
 
 //Her kan vi importere middleware
-const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
+// const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
+// const authMiddleware = require('./middleware/authMiddleware');
 
 //Her importeres controllers
-const UserController = require('./client/controllers/UserController')
+const StudentController = require('./client/controllers/StudentController')
 
 //Styrer hvad man kan se alt efter om man er logget ind eller ej.
 // global.loggedIn = null;
@@ -50,8 +51,8 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 })
-app.get('/register', (req, res) => {
-    res.render('register');
+app.get('/registerStudent', (req, res) => {
+    res.render('registerStudent');
 })
 app.get('/student', (req, res) => {
     res.render('student');
@@ -89,25 +90,26 @@ app.get('/showTeacherInformation', (req, res) => {
 })
 
 //Ikke sikker på om det her fungerer, eller hvordan vi skal gøre det med sql, men idk
-app.get('/register', redirectIfAuthenticatedMiddleware, UserController.create)
-app.post('/users/register', redirectIfAuthenticatedMiddleware, UserController.store)
-app.get('/login', redirectIfAuthenticatedMiddleware, UserController.index)
-app.post('/users/login', redirectIfAuthenticatedMiddleware, UserController.post)
-app.get('/logout', UserController.destroy)
+// app.get('/register', redirectIfAuthenticatedMiddleware, UserController.create)
+// app.post('/users/register', redirectIfAuthenticatedMiddleware, UserController.store)
+// app.get('/login', redirectIfAuthenticatedMiddleware, UserController.index)
+// app.post('/users/login', redirectIfAuthenticatedMiddleware, UserController.post)
+
+// app.get('/logout', UserController.destroy)
 
 
-app.post('/api/teachers',(req,res)=>{
+app.post('/api/teachers', (req, res) => {
     Teacher.create(req.body)
         .then(teacher => res.json(teacher))
 })
-app.get('/api/teachers',(req,res)=>{
+app.get('/api/teachers', (req, res) => {
     Teacher.findAll().then(teacher => res.json(teacher))
 })
 
 app.post('/api/students', (req, res) => {
-    Student.create(req.body)
-        .then(student => res.json(student))
+    StudentController.create(req,res)
 })
+
 app.get('/api/students', (req, res) => {
     Student.findAll().then(students => res.json(students))
 })

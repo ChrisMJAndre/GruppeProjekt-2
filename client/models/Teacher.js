@@ -1,70 +1,97 @@
 const bcryptjs = require('bcryptjs')
 
-Teacher.beforeCreate((teacher, options) => {
+// module.exports = (sequelize, type) => {
+//     return sequelize.define('teacher', {
+//         id: {
+//             type: type.INTEGER,
+//             primaryKey: true,
+//             autoIncrement: true
+//         },
+//         firstName: {
+//             type: type.String,
+//             field: 'firstname'
+//         },
+//         lastName: {
+//             type: type.String,
+//             field: 'lastname'
+//         },
+//         password: type.String,
+//         email: type.String,
+//         phoneNumber: type.String
+//     })
+// };
 
-    return bcrypt.hash(teacher.password, 10)
-        .then(hash => {
-            teacher.password = hash;
-        })
-        .catch(err => {
-            throw new Error();
-        });
-});
-
-module.exports = function(sequalize,type){
-    return sequelize.define('teacher', {
+module.exports = (sequelize, Sequelize) => {
+    const Teacher = sequelize.define('Teacher', {
         id: {
-            type: type.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         firstName: {
-            type: type.String,
-            field: 'firstname'
+            type: Sequelize.STRING
         },
         lastName: {
-            type: type.String,
-            field: 'lastname'
+            type: Sequelize.STRING
         },
-        password: type.String,
-        email: type.String,
-        phoneNumber: type.String
-    })
-};
-const uniqueValidator = require('mongoose-unique-validator');
-
-const UserSchema = new Schema({
-    firstName: {
-        type: String,
-        required: [true, 'Please provide firstname'],
-    },
-    lastName: {
-        type: String,
-        required: [true, 'Please provide lastname'],
-    },
-    password: {
-        type: password,
-        required: [true, 'Please provide password']
-    },
-    email: {
-        type: String,
-        required: [true, 'Please provide email']
-    },
-    phoneNumber: {
-        type: Number,
-        required: [true, 'Please provide phone number']
-    },
-});
-
-UserSchema.plugin(uniqueValidator);
-UserSchema.pre('save', function (next) {
-    const user = this
-    bcryptjs.hash(user.password, 10, (error, hash) => {
-        user.password = hash
-        next()
+        password: {
+            type: Sequelize.STRING
+        },
+        email: {
+            type: Sequelize.STRING
+        },
+        phoneNumber: {
+            type: Sequelize.STRING
+        }
     });
-});
+    return Teacher
+};
 
-const User = model('User', UserSchema);
-module.exports = User
+// Teacher.beforeCreate((teacher, options) => {
+
+//     return bcrypt.hash(teacher.password, 10)
+//         .then(hash => {
+//             teacher.password = hash;
+//         })
+//         .catch(err => {
+//             throw new Error();
+//         });
+// });
+
+// const uniqueValidator = require('mongoose-unique-validator');
+
+// const UserSchema = new Schema({
+//     firstName: {
+//         type: String,
+//         required: [true, 'Please provide firstname'],
+//     },
+//     lastName: {
+//         type: String,
+//         required: [true, 'Please provide lastname'],
+//     },
+//     password: {
+//         type: password,
+//         required: [true, 'Please provide password']
+//     },
+//     email: {
+//         type: String,
+//         required: [true, 'Please provide email']
+//     },
+//     phoneNumber: {
+//         type: Number,
+//         required: [true, 'Please provide phone number']
+//     },
+// });
+
+// UserSchema.plugin(uniqueValidator);
+// UserSchema.pre('save', function (next) {
+//     const user = this
+//     bcryptjs.hash(user.password, 10, (error, hash) => {
+//         user.password = hash
+//         next()
+//     });
+// });
+
+// const User = model('User', UserSchema);
+// module.exports = User
 
