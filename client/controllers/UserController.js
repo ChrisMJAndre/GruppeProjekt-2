@@ -1,62 +1,44 @@
 //Igen eksempel fra bogen, så vi kan se hvordan det kan gøres
-
-const User = require('../models/User')
-const bcryptjs = require('bcryptjs')
-const path = require('path')
+const pool = require('../../server/db');
+//bruger vi ikke nu, men det bør til password
+const bcrypt = require('bcryptjs')
 
 module.exports = {
-    async index(req, res) {
-        res.render('login')
-    },
-    async store(req, res) {
-        User.create(req.body, (error, user) => {
-            if (error) {
-                const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
-                req.flash('validationErrors', validationErrors)
-                req.flash('data', req.body)
-                // req.session.validationErrors = validationErrors
-                return res.redirect('/register')
-            }
-            res.redirect('/')
-        })
-    },
     async create(req, res) {
-        var username = ""
-        var password = ""
-        const data = req.flash('data')[0];
-        if (typeof data != "undefined") {
-            username = data.username
-            password = data.password
-        }
-        res.render('register', {
-            errors: req.flash('validationErrors'),
-            username: username,
-            password: password
+        console.log(req.body);
+        const dbTable = req.body.isStudent === 'true' ? 'student' : 'teacher';
+        pool.query(`INSERT INTO ${dbTable} (firstName, lastName, password, email, phoneNumber, studyprogramme_id  ) VALUES
+($1, $2, $3, $4, $5, $6) RETURNING *`, [req.body.firstName, req.body.lastName,
+        req.body.password, req.body.email, req.body.phoneNumber, req.body.studyProgramme]
+        ).then(result => {
+
+            res.redirect('/')
         })
     },
     async post(req, res) {
-        const { username, password } = req.body;
+        const { email, password, isStudent } = req.body;
+        const dbTable = isStudent === 'true' ? 'student' : 'teacher';
 
-        User.findOne({ username: username }, (error, user) => {
-            if (user) {
-                bcryptjs.compare(password, user.password, (error, same) => {
-                    if (same) {
-                        req.session.userId = user._id
+        pool.query(`SELECT * FROM ${dbTable} WHERE email LIKE $1`, [email])
+            .then(result => {
+                const user = result.rows[0]
+                // console.log();
+                if (user) {
+                    if (user.password == password) {
+                        req.session.user = {
+                            id: user.id, userType: dbTable,
+                        }
+
                         res.redirect('/')
+                    } else {
+                        res.redirect('/auth/login')
                     }
-                    else {
-                        res.redirect('/login')
-                    }
-                })
-            }
-            else {
-                res.redirect('/login')
-            }
-        })
-    },
-    async destroy(req, res) {
-        req.session.destroy(() => {
-            res.redirect('/')
-        })
+                }
+                else {
+                    res.redirect('/auth/login')
+                }
+            })
     }
 }
+
+

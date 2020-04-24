@@ -40,8 +40,7 @@ document.getElementById("removeButton").style.display = "block";
 Så skal man også bruge querySelector når det er mere end et id:
 function removeStudent() {
 var x = document.querySelectorAll('#studentsIn2, #studentsIn3, #studentsIn4');
-  
-  
+
 Den her fjernes fra teache.js, og i stedet indsættes den funktion jeg lavede lokalt d. 05-11:
 /_ Her er funktionen der kan fjerne en student fra en forelæsning. Én forelæsning har ingen tilmeldte students, så der kan ingen fjernes fra.
 Andre har students, så man får vi listen over de students der er tilmeldt og kan fjerne en. Indtil videre fjerner det dem dog fra listen der er fælles for alle forelæsninger. - Nik _/
@@ -285,3 +284,75 @@ res.status(404).send('<h1>404 Page Not Found!</h1>');
 });
 
 app.listen(3000, () => console.log("Server is Running..."));
+
+Fra create lecture
+
+  <!-- Dropdown lists -->
+
+      <!-- <p>Study program</p>
+      <select id="studyProgram">
+        <option selected disabled>Select study program</option>
+        <option value="1">HA(it.)</option>
+        <option value="2">HA(jur.)</option>
+        <option value="3">HA(mat.)</option>
+      </select>
+      <br /> -->
+
+
+
+ <p>Course</p>
+      <select id="course">
+        <!-- Her skal vi gerne kunne tage fra databasen, ellers kan vi bare lave value="1" osv for fagene. -->
+        <option selected disabled>Select course</option>
+        <option value="BIS"
+          >Introduction to Informations Systems and Informations Systems
+          Development</option
+        >
+        <option value="VØS">Virksomhedens økonomiske styring 1</option>
+        <option value="PRO"
+          >Programmering og udvikling af små systemer samt databaser</option
+        >
+        <option value="ORG"
+          >Indføring i organisationers opbygning og funktion</option
+        >
+      </select>
+      <br />
+
+      <p>Classroom</p>
+      <select id="chooseClassroom">
+        <!-- Samme som for course og studyProgramme -->
+        <option>Select classroom</option>
+      </select>
+
+      <br />
+      <p>Lecture Name</p>
+      <input
+        type="text"
+        name="text"
+        id="lectureName"
+        value=""
+        placeholder="Lecture name"
+      />
+      <p id="lName"></p>
+
+      <p>Day</p>
+      <select id="day">
+        <!-- Gemmes som datatype date i db så skal nok laves om -->
+        <option selected disabled>Choose day</option>
+        <option value="Mon">Monday</option>
+        <option value="Tue">Tuesday</option>
+        <option value="Wed">Wednesday</option>
+        <option value="Thu">Thursday</option>
+        <option value="Fri">Friday</option>
+      </select>
+      <br />
+
+      <p>Time of lecture</p>
+      <!-- Vi gemme det som datatype time i db så det skal nok ikke være et textarea -->
+      <textarea
+        rows="1"
+        cols="15"
+        id="time"
+        placeholder="Insert time"
+      ></textarea>
+      <br />

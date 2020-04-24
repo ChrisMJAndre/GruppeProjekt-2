@@ -1,7 +1,6 @@
 {
   "name": "gruppeprojekt-2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -14,13 +13,14 @@
     "express-fileupload": "^1.1.6",
     "express-session": "^1.17.0",
     "express-validator": "^6.4.0",
+    "flash": "^1.1.0",
     "install": "^0.13.0",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.5",
     "mongoose-unique-validator": "^2.0.3",
     "mysql2": "^2.1.0",
     "npm": "^6.14.3",
-    "pg": "^7.18.2",
-    "sequelize": "^5.21.6"
+    "pg": "^7.18.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
@@ -39,5 +39,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChrisMJAndre/GruppeProjekt-2.git"
-  }
+  },
+  "description": ""
 }
