@@ -92,7 +92,7 @@ app.get('/removeStudent', (req, res) => {
 app.get('/removeLecture', (req, res) => {
     res.render('removeLecture');
 })
-app.get('/createLecture', (req, res) => {
+app.get('/createLecture', authMiddleware(['teacher']), (req, res) => {
     pool.query(`SELECT * FROM classroom`).then(classroomResult => {
         pool.query(`SELECT * FROM course`).then(courseResult => {
             const classrooms = classroomResult.rows;
