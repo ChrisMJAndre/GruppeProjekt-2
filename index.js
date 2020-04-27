@@ -75,6 +75,7 @@ app.delete('/lecture/:id', authMiddleware(['teacher']), LectureController.destro
 app.post('/lecture/', authMiddleware(['student']), LectureController.post);
 
 
+
 app.get('/lectures', authMiddleware(['teacher', 'student']), LectureController.index);
 
 app.get('/teacher', authMiddleware(['teacher']), (req, res) => {

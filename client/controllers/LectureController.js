@@ -51,12 +51,8 @@ module.exports = {
     },
     async post(req, res) {
 
-        console.log("test");
-
         const { user } = req.session;
         const { lectureId } = req.body;
-
-        console.log(user, req.body);
 
 
         if (user.userType !== 'student') {
