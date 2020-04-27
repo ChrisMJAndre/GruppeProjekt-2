@@ -16,8 +16,9 @@ module.exports = {
     async show(req, res) {
 
         const lectureId = req.params.id;
-        pool.query(`SELECT lecture.id, lecture.lecturename, lecture.date, lecture.time, lecture.comment,  lecture.teacher_id, teacher.id, teacher.firstName, teacher.lastName, classroom.location, course.title FROM lecture 
+        pool.query(`SELECT lecture.id, lecture.lecturename, lecture.date, lecture.time, lecture.comment,  lecture.teacher_id, teacher.id, teacher.firstName, teacher.lastName, classroom.location, course.title, , student.id, student.firstName, student.lastName, lecture.listofstudents_id FROM lecture 
         INNER JOIN teacher ON lecture.teacher_id=teacher.id
+        INNER JOIN student ON lecture.listofstudents_id=student.id
         INNER JOIN classroom ON lecture.classroom_id=classroom.id
         INNER JOIN course ON lecture.course_id=course.id
         WHERE lecture.id=${lectureId}
