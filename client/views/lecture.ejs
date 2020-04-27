@@ -16,26 +16,34 @@
       </div>
     </main>
 
-    <% if (user.userType === 'teacher' && user.id === lecture.teacher_id){ %>
     <div id="removeLecture">
+      <% if (user.userType === 'teacher' && user.id === lecture.teacher_id){ %>
       <button onclick="deleteLecture(<%= lecture.id %>)">
         Delete lecture
       </button>
+      <% } %>
     </div>
 
-    <script>
-      function deleteLecture(lectureId) {
-        fetch("/lecture/" + lectureId, {
-          method: "DELETE",
-        })
-          .then(() => {
-            window.location.replace("/lectures");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    </script>
-    <% } %> <%- include('layouts/scripts'); -%>
+    <div id="joinLecture">
+      <% if (user.userType === 'student') { %>
+      <form
+        action="/lecture"
+        method="POST"
+        enctype="application/x-www-form-urlencoded"
+        name="Join Lecture"
+      >
+        <input
+          type="text"
+          value="<%= lecture.id %>"
+          style="display: none;"
+          name="lectureId"
+        />
+        <button type="submit">
+          Join lecture
+        </button>
+      </form>
+      <% } %>
+    </div>
+    <%- include('layouts/scripts'); -%>
   </body>
 </html>

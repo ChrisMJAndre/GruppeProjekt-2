@@ -44,6 +44,7 @@ const UserController = require('./client/controllers/UserController')
 const TeacherController = require('./client/controllers/TeacherController')
 const loginController = require('./client/controllers/login')
 const LectureController = require('./client/controllers/LectureController')
+const TestController = require('./client/controllers/TestController')
 
 
 
@@ -62,9 +63,6 @@ app.get('/', (req, res) => {
         userType: req.session.user ? req.session.user.userType : null
     });
 })
-app.get('/login', (req, res) => {
-    res.render('login');
-})
 app.get('/register', redirectIfAuthenticatedMiddleware, (req, res) => {
     pool.query(`SELECT * FROM studyProgramme`).then(result => {
         const studyProgrammes = result.rows;
@@ -72,25 +70,15 @@ app.get('/register', redirectIfAuthenticatedMiddleware, (req, res) => {
     }
     )
 })
-app.get('/student', (req, res) => {
-    res.render('student');
-})
-app.get('/admin', (req, res) => {
-    res.render('admin');
-})
 app.get('/lecture/:id', authMiddleware(['teacher', 'student']), LectureController.show);
-app.delete('/lecture/:id', authMiddleware(['teacher']), LectureController.destroy)
+app.delete('/lecture/:id', authMiddleware(['teacher']), LectureController.destroy);
+app.post('/lecture/', authMiddleware(['student']), LectureController.post);
+
 
 app.get('/lectures', authMiddleware(['teacher', 'student']), LectureController.index);
 
 app.get('/teacher', authMiddleware(['teacher']), (req, res) => {
     res.render('teacher');
-})
-app.get('/removeStudent', (req, res) => {
-    res.render('removeStudent');
-})
-app.get('/removeLecture', (req, res) => {
-    res.render('removeLecture');
 })
 app.get('/createLecture', authMiddleware(['teacher']), (req, res) => {
     pool.query(`SELECT * FROM classroom`).then(classroomResult => {
@@ -104,21 +92,7 @@ app.get('/createLecture', authMiddleware(['teacher']), (req, res) => {
     )
 })
 
-app.get('/deleteStudent', (req, res) => {
-    res.render('deleteStudent');
-})
-app.get('/deleteTeacher', (req, res) => {
-    res.render('deleteTeacher');
-})
-app.get('/deleteLecture', (req, res) => {
-    res.render('deleteLecture');
-})
-app.get('/showStudentInformation', (req, res) => {
-    res.render('showStudentInformation');
-})
-app.get('/showTeacherInformation', (req, res) => {
-    res.render('showTeacherInformation');
-})
+
 
 //Ikke sikker på om det her fungerer, eller hvordan vi skal gøre det med sql, men idk
 // app.get('/register', redirectIfAuthenticatedMiddleware, UserController.create)

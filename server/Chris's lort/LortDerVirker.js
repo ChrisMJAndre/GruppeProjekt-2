@@ -42,9 +42,15 @@ CREATE TABLE SignUp(
     SignUp_id INT REFERENCES SignUp (id)
 );
 
+CREATE TABLE ListOfStudents(
+    id SERIAL,
+    student_id INT NOT NULL,
+    lecture_id INT NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES Student(id)
+    CONSTRAINT fk_lecture_id FOREIGN KEY (lecture_id) REFERENCES Lecture(id));
 
-ALTER TABLE SignUp
-ADD CONSTRAINT FK_Lecture_id FOREIGN KEY (id) REFERENCES Lecture (id);
+
 
 
 
