@@ -83,8 +83,3 @@ pool.query(`
 `).then(result => {
     console.log(error, result);
 });
-
-/*
-select * from listofstudents ls inner join lecture l where l.id==ls.lecture_id
-
- */

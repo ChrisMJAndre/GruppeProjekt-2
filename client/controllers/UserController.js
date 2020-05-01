@@ -1,7 +1,4 @@
-//Igen eksempel fra bogen, så vi kan se hvordan det kan gøres
 const pool = require('../../server/db');
-//bruger vi ikke nu, men det bør til password
-const bcrypt = require('bcryptjs')
 
 module.exports = {
     async create(req, res) {
@@ -22,7 +19,6 @@ module.exports = {
         pool.query(`SELECT * FROM ${dbTable} WHERE email LIKE $1`, [email])
             .then(result => {
                 const user = result.rows[0]
-                // console.log();
                 if (user) {
                     if (user.password == password) {
                         req.session.user = {

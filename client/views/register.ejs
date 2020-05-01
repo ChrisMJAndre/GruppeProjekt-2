@@ -54,11 +54,9 @@
         />
       </div>
       <div>
-        <!-- Her skal det indsættes fra databasen -->
         <label>Study programme</label>
         <select id="studyProgramme" name="studyProgramme">
           <option value="">Select study program</option>
-          <!-- <%= studyProgrammes %> -->
           <% for (const studyProgramme of studyProgrammes) { %>
           <option value="<%= studyProgramme.id %>"
             ><%= studyProgramme.title %></option

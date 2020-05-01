@@ -1,6 +1,4 @@
-//Igen eksempel fra bogen, så vi kan se hvordan det kan gøres
 const pool = require('../../server/db');
-
 
 module.exports = {
     create(req, res) {
@@ -8,7 +6,6 @@ module.exports = {
 ($1, $2, $3, $4, $5, $6) RETURNING *`, [req.body.firstName, req.body.lastName,
         req.body.password, req.body.email, req.body.phoneNumber, req.body.studyProgramme]
         ).then(result => {
-            // console.log(result.rows);
             res.redirect('/')
         })
     },
@@ -18,7 +15,6 @@ module.exports = {
             .then(result => {
                 const teacher = result.rows[0]
                 console.log(req.session);
-                // console.log(result);
                 if (teacher) {
                     if (teacher.password == password) {
                         req.session.studentId = teacher._id
