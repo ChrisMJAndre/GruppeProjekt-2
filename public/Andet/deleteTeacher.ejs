@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <%- include('layouts/headerAdmin'); -%>
+
+  <body>
+    <!-- Drop down menu til at fjerne teachers -->
+    <h1>Delete an existing teacher</h1>
+    <%- include('layouts/navAdmin'); -%>
+
+    <br />
+    <select id="allTeachers" size="3">
+      <option>Josefine HA(it.) 3. semester</option>
+      <option>Calle HA(it.) 5. semester</option>
+      <option>Mikkel HA(jur.) 4. semester</option>
+    </select>
+    <br />
+    <button type="button" onclick="deleteTeacher()">
+      Delete the selected teacher
+    </button>
+    <script src="../Javascript/admin.js"></script>
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/headerTeacher'); -%>
+  <body>
+    <h1>Remove lecture</h1>
+    <%- include('layouts/navTeacher'); -%>
+    <!-- Dropdown list med alle ens egne oprettede forelæsninger -->
+    <h2>Remove (one of) your lecture(s)</h2>
+    <select id="teacherLecture" size="4">
+      <option>Consumer surplus og producer surplus</option>
+      <option>Lineær programmering</option>
+      <option>Programmering - Guide til objekter</option>
+      <option>If statements og loops</option>
+    </select>
+    <br />
+    <button type="button" onclick="removeLecture();">
+      Remove selected lecture
+    </button>
+
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>

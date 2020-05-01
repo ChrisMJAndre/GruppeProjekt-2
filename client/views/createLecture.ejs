@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/headerTeacher'); -%>
+  <body>
+    <h1>Create lecture</h1>
+    <%- include('layouts/navTeacher'); -%>
+    <h2>Create lecture</h2>
+    <form
+      name="Create Lecture"
+      action="/api/lectures"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <!-- Text fields -->
+      <p>Lecture name</p>
+      <input
+        type="text"
+        id="lectureName"
+        name="lectureName"
+        value=""
+        placeholder="Lecture name"
+      />
+      <br />
+
+      <div>
+        <label>Date</label>
+        <input type="date" placeholder="Date" id="date" name="date" />
+      </div>
+
+      <div>
+        <label>Time</label>
+        <input type="time" placeholder="Time" id="time" name="time" />
+      </div>
+
+      <!-- Text area for additional comments -->
+      <label>Additional comments</label>
+      <textarea
+        rows="5"
+        cols="30"
+        id="comment"
+        name="comment"
+        placeholder="Your comment here..."
+      ></textarea>
+
+      <div>
+        <!-- Her skal det indsættes fra databasen -->
+        <label>Classroom</label>
+        <select id="classroom" name="classroom">
+          <option value="">Select classroom</option>
+          <% for (const classroom of classrooms) { %>
+          <option value="<%= classroom.id %>"
+            ><%= classroom.location %> - <%= classroom.size %></option
+          >
+          <% } %>
+        </select>
+      </div>
+
+      <div>
+        <!-- Her skal det indsættes fra databasen -->
+        <label>Course</label>
+        <select id="course" name="course">
+          <% for (const course of courses) { %>
+          <option value="<%= course.id %>"><%= course.title %></option>
+          <% } %>
+        </select>
+      </div>
+
+      <!-- Submit button to create lecture -->
+      <br />
+      <button type="submit">
+        Create lecture
+      </button>
+    </form>
+
+    <div
+      action="/lectures"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <Label>Show all lectures</Label>
+      <button type="submit">Show</button>
+    </div>
+
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>

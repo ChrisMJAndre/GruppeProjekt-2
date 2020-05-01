@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <%- include('layouts/headerAdmin'); -%>
+
+  <body>
+    <!-- Drop down menu til at fjerne students -->
+    <h1>Delete an existing student</h1>
+    <%- include('layouts/navAdmin'); -%>
+
+    <br />
+    <select id="allStudents" size="4">
+      <option>Christopher André HA(it.) 1. semester</option>
+      <option>Niklas L-B HA(it.) 1. semester</option>
+      <option>Sven Eriksen HA(jur.) 4. semester</option>
+      <option>Kasper Rasmussen HA(jur.) 3. semester </option>
+    </select>
+
+    <br />
+
+    <button type="button" onclick="deleteStudent()">
+      Delete the selected student
+    </button>
+    <script src="../Javascript/admin.js"></script>
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>

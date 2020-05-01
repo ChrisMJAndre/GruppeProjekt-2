@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <%- include('layouts/headerAdmin'); -%>
+
+  <body>
+    <h1>Delete an existing lecture</h1>
+    <%- include('layouts/navAdmin'); -%>
+
+    <br />
+    <select id="allLectures" size="13">
+      <!-- De første to er BIS forelæsninger for HA(it.) -->
+      <option>Vandfaldsmodellen</option>
+      <option>Httml for begyndere</option>
+      <!-- De næste to er VØS forelæsninger for HA(it.) -->
+      <option>Consumer surplus og producer surplus</option>
+      <option>Lineær programmering</option>
+      <!-- De næste to er PRO forelæsninger for HA(it.) -->
+      <option>Programmering - Guide til objekter</option>
+      <option>If statements og loops</option>
+      <!-- De næste to er ORG forelæsninger for HA(it.) -->
+      <option>Kultur i organisationer</option>
+      <option>Motivation og koblingen til andre emner</option>
+      <!-- Denne er en forelæsning for mikroøkonomi for HA(jur.) -->
+      <option>Mikroøkonomi opsummering</option>
+      <!-- Denne er en forelæsning for formueret for HA(jur.) -->
+      <option>Formueret eksamen tips og tricks </option>
+      <!-- De næste tre er forelæsninger for aftaleret for HA(jur.) -->
+      <option>Aftaleret for begyndere</option>
+      <option>Juridisk metode introduktion</option>
+      <option>Fuldmagt og ugyldighed opsummering</option>
+    </select>
+    <br />
+    <button type="button" onclick="deleteLecture();">
+      Delete the selected lecture
+    </button>
+
+    <script type="text/javascript" src="../Javascript/admin.js"></script>
+
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>
