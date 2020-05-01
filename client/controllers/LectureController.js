@@ -25,7 +25,16 @@ module.exports = {
             const lecture = result.rows[0];
             lecture.id = lectureId;
             lecture.formattedDate = moment(lecture.date).format('YYYY-MM-DD');
-            res.render('lecture', { lecture, user: req.session.user })
+            pool.query(`SELECT listOfStudents.id, listOfStudents.student_id, listOfStudents.lecture_id, student.id, student.firstName, student.lastName, lecture_id FROM listOfStudents
+        INNER JOIN student ON listOfStudents.student_id = student.id
+        WHERE listOfStudents.lecture_id=${lectureId} 
+         `).then( result => {
+
+                const listOfStudents = result.rows;
+                console.log(listOfStudents)
+                listOfStudents.lecture_id = lectureId;
+                res.render('lecture', { lecture, user: req.session.user, listOfStudents })
+            })
         })
     },
     async index(req, res) {
