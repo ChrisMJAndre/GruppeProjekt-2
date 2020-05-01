@@ -14,53 +14,46 @@
         <p><%= lecture.location %></p>
         <p><%= lecture.title %></p>
         <p><%= lecture.comment %></p>
-       <p> <% for (var i = 0; i < listOfStudents.length; i++) {%>
-           <%= listOfStudents[i].firstname %> <%= listOfStudents[i].lastname %>
-         <%}%>  </p>
+
+
+        <div id="removeLecture">
+          <% if (user.userType === 'teacher' && user.id === lecture.teacher_id){ %>
+            <button onclick="deleteLecture(<%= lecture.id %>)">
+              Delete lecture
+            </button>
+          <% } %>
+        </div>
+
+
+        <div id="joinLecture">
+          <% if (user.userType === 'student') { %>
+            <form
+                    action="/lecture"
+                    method="POST"
+                    enctype="application/x-www-form-urlencoded"
+                    name="Join Lecture"
+            >
+              <input
+                      type="text"
+                      value="<%= lecture.id %>"
+                      style="display: none;"
+                      name="lectureId"
+              />
+              <button type="submit">
+                Join lecture
+              </button>
+            </form>
+          <% } %>
+        </div>
+
+
+<p>Joined students:</p>
+        <ul> <li><% for (var i = 0; i < listOfStudents.length; i++) {%>
+              <%= listOfStudents[i].firstname %> <%= listOfStudents[i].lastname %>
+            <%}%> </li> </ul>
       </div>
     </main>
 
-    <div id="removeLecture">
-      <% if (user.userType === 'teacher' && user.id === lecture.teacher_id){ %>
-      <button onclick="deleteLecture(<%= lecture.id %>)">
-        Delete lecture
-      </button>
-      <% } %>
-    </div>
-
-
-    <div id="joinLecture">
-      <% if (user.userType === 'student') { %>
-      <form
-        action="/lecture"
-        method="POST"
-        enctype="application/x-www-form-urlencoded"
-        name="Join Lecture"
-      >
-        <input
-          type="text"
-          value="<%= lecture.id %>"
-          style="display: none;"
-          name="lectureId"
-        />
-        <button type="submit">
-          Join lecture
-        </button>
-      </form>
-      <% } %>
-    </div>
-
-    <div id="joinedStudents">
-        <form
-                action="/lecture/joinedStudents"
-                method="GET"
-                name="Joined students"
-        >
-          <button type="submit">
-            Show joined students
-          </button>
-        </form>
-    </div>
 
 
     <%- include('layouts/scripts'); -%>

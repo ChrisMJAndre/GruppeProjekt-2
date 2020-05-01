@@ -47,7 +47,7 @@ pool.query(`
     /* Insert teacher into the Teacher Table, not all teacher */
     INSERT INTO Teacher (firstName, lastName, passWord, email, phoneNumber, StudyProgramme_id)
             VALUES 
-                    ('Christopher M.J.', 'André', '5678', 'Chan19af@student.cbs.dk', '31418551', '2'),
+                    ('Christopher M.J.', 'André', '5678', 'Chan19af@student.cbs.dk', '31418551', '1'),
                     ('Alexander', 'Al-Gamour', '1234', 'Alal19ab@student.cbs.dk', '12345678', '1'),
                     ('Helene', 'Hansen', '4567', 'Hehe15ay@student.cbs.dk', '65436543', '2'),
                     ('Anders', 'Andersen', '3456', 'Anan17ab@student.cbs.dk', '34563456', '2'), 
@@ -58,10 +58,10 @@ pool.query(`
     INSERT INTO Lecture (lectureName, date, time, comment, teacher_id, classroom_id, course_id)
         VALUES 
                 ('Programmerings hjælp', '2020/02/13', '19:00', 'comment?', '1', '1', '1'), 
-                ('Organisations hjælp', '2020/02/13', '19:00', 'comment?', '1', '3', '2'), 
+                ('Organisations hjælp', '2020/02/13', '19:00', 'comment?', '2', '3', '2'), 
                 ('VØS hjælp', '2020/02/13', '19:00', 'comment?', '1', '1', '4'), 
-                ('How to be a laywer', '2020/02/13', '19:00', 'comment?', '1', '2', '3'), 
-                ('Erhvervsmatematik hjælp', '2020/02/13', '19:00', 'comment?', '1', '5', '5');
+                ('How to be a laywer', '2020/02/13', '19:00', 'comment?', '3', '2', '3'), 
+                ('Erhvervsmatematik hjælp', '2020/02/13', '19:00', 'comment?', '4', '5', '5');
     
 
 
