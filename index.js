@@ -44,8 +44,7 @@ const UserController = require('./client/controllers/UserController')
 const TeacherController = require('./client/controllers/TeacherController')
 const loginController = require('./client/controllers/login')
 const LectureController = require('./client/controllers/LectureController')
-const ShowStudentController = require('./client/controllers/ShowStudentController')
-const TestController = require('./client/controllers/TestController')
+
 
 
 
@@ -74,7 +73,7 @@ app.get('/register', redirectIfAuthenticatedMiddleware, (req, res) => {
 app.get('/lecture/:id', authMiddleware(['teacher', 'student']), LectureController.show);
 app.delete('/lecture/:id', authMiddleware(['teacher']), LectureController.destroy);
 app.post('/lecture/', authMiddleware(['student']), LectureController.post);
-app.get('/lecture/joinedStudents', ShowStudentController);
+
 
 
 app.get('/lectures', authMiddleware(['teacher', 'student']), LectureController.index);
