@@ -13,8 +13,6 @@
         <p><%= lecture.location %></p>
         <p><%= lecture.title %></p>
         <p><%= lecture.comment %></p>
-        <p>Joined students</p>
-        <p><%= lecture.listof %></p>
       </div>
     </main>
 
@@ -26,11 +24,12 @@
       <% } %>
     </div>
 
+
     <div id="joinLecture">
       <% if (user.userType === 'student') { %>
       <form
         action="/lecture"
-        method="POST"
+        method="GET"
         enctype="application/x-www-form-urlencoded"
         name="Join Lecture"
       >
@@ -46,6 +45,21 @@
       </form>
       <% } %>
     </div>
+
+    <div id="joinedStudents">
+        <form
+                action="/lecture/joinedStudents"
+                method="POST"
+                enctype="application/x-www-form-urlencoded"
+                name="Joined students"
+        >
+          <button type="submit">
+            Show joined students
+          </button>
+        </form>
+    </div>
+
+
     <%- include('layouts/scripts'); -%>
   </body>
 </html>
