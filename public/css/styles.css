@@ -9,6 +9,7 @@
 
 body {
   background-color: rgb(247, 247, 243);
+  text-align: center;
 }
 
 button {
@@ -47,6 +48,10 @@ p,
 a {
   font-family: cbsNewRegular;
   font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 ul.nav {
