@@ -8,11 +8,10 @@
     <main>
       <div class="lecture-information">
         <h2><%= lecture.lecturename %></h2>
-
-        <time><%= lecture.formattedDate %> - <%= lecture.time %></time>
-        <p><%= lecture.firstname %> <%= lecture.lastname %></p>
-        <p><%= lecture.location %></p>
-        <p><%= lecture.title %></p>
+        <p>Time and date: <time><%= lecture.formattedDate %> - <%= lecture.time %></time></p>
+        <p>Teacher: <%= lecture.firstname %> <%= lecture.lastname %></p>
+        <p>Location: <%= lecture.location %></p>
+        <p>Course: <%= lecture.title %></p>
         <p><%= lecture.comment %></p>
 
 
@@ -48,7 +47,7 @@
 
 
 <p>Joined students:</p>
-        <ul> <li><% for (var i = 0; i < listOfStudents.length; i++) {%>
+        <ul><% for (var i = 0; i < listOfStudents.length; i++) {%> <li>
               <%= listOfStudents[i].firstname %> <%= listOfStudents[i].lastname %>
             <%}%> </li> </ul>
       </div>

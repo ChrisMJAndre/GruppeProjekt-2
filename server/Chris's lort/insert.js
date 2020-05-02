@@ -57,11 +57,11 @@ pool.query(`
    /* Insert Lectures into the Lecture Table */
     INSERT INTO Lecture (lectureName, date, time, comment, teacher_id, classroom_id, course_id)
         VALUES 
-                ('Programmerings hjælp', '2020/02/13', '19:00', 'comment?', '1', '1', '1'), 
-                ('Organisations hjælp', '2020/02/13', '19:00', 'comment?', '2', '3', '2'), 
-                ('VØS hjælp', '2020/02/13', '19:00', 'comment?', '1', '1', '4'), 
-                ('How to be a laywer', '2020/02/13', '19:00', 'comment?', '3', '2', '3'), 
-                ('Erhvervsmatematik hjælp', '2020/02/13', '19:00', 'comment?', '4', '5', '5');
+                ('Programmerings hjælp', '2020/05/01', '04:00', 'Husk kolde monster', '1', '1', '3'), 
+                ('Organisations hjælp', '2020/06/04', '19:00', 'Medbring "Hvordan organisationer fungerer" af Jacobsen og Thorsvik ', '2', '3', '2'), 
+                ('VØS hjælp', '2020/05/13', '09:30', 'Installer excel og et regneprogram på forhånd, tak', '1', '1', '4'), 
+                ('How to be a laywer', '2020/05/26', '08:00', 'Se Suits!', '3', '2', '6'), 
+                ('Erhvervsmatematik hjælp', '2020/06/10', '14:45', 'a^2+b^2=c^2 eller sådan noget', '4', '5', '8');
     
 
 

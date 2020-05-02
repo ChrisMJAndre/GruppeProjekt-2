@@ -9,7 +9,7 @@ module.exports = {
 ($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [req.body.lectureName, req.body.date,
         req.body.time, req.body.comment, req.session.user.id, req.body.classroom, req.body.course]
         ).then(result => {
-            console.log(result.rows);
+            console.log(result.rows); 
             res.redirect('/')
         })
     },

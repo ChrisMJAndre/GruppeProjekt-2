@@ -12,7 +12,6 @@
       enctype="application/x-www-form-urlencoded"
     >
       <!-- Text fields -->
-      <p>Lecture name</p>
       <input
         type="text"
         id="lectureName"
@@ -33,13 +32,12 @@
       </div>
 
       <!-- Text area for additional comments -->
-      <label>Additional comments</label>
       <textarea
         rows="5"
         cols="30"
         id="comment"
         name="comment"
-        placeholder="Your comment here..."
+        placeholder="Add a comment about lecture..."
       ></textarea>
 
       <div>
@@ -54,12 +52,15 @@
         </select>
       </div>
 
+
+      <!-- Her skal den kun vise de fag, som er tilknyttet den studieretning en user har-->
       <div>
         <label>Course</label>
         <select id="course" name="course">
           <% for (const course of courses) { %>
-          <option value="<%= course.id %>"><%= course.title %></option>
-          <% } %>
+          <option value="<%= course.id %>"
+            ><%= course.title %> - <%= course.studyprogramme_id %></option>
+          <% } %> 
         </select>
       </div>
 
@@ -70,14 +71,6 @@
       </button>
     </form>
 
-    <div
-      action="/lectures"
-      method="POST"
-      enctype="application/x-www-form-urlencoded"
-    >
-      <Label>Show all lectures</Label>
-      <button type="submit">Show</button>
-    </div>
 
     <%- include('layouts/scripts'); -%>
   </body>
