@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-05-04T11:29:31.203Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15" etag="6oVQFGc31QHpenFBdP8i" version="12.9.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-05-04T11:45:46.520Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15" etag="T5jSG2Ia5lKfpGmwLnQF" version="12.9.6" type="github">
   <diagram id="naz7NzOcKD-QqL_7P5jK" name="Page-1">
-    <mxGraphModel dx="943" dy="561" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1183" dy="561" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -25,7 +25,7 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="220" y="347" />
-              <mxPoint x="220" y="500" />
+              <mxPoint x="220" y="460" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -53,6 +53,17 @@
               <mxPoint x="220" y="235" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="hT9fbZHffNhWlzX2S7f2-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="hdsZDOFmJW38S7iMikZD-9" target="hT9fbZHffNhWlzX2S7f2-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="347" />
+              <mxPoint x="220" y="523" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hT9fbZHffNhWlzX2S7f2-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="hdsZDOFmJW38S7iMikZD-9" target="hT9fbZHffNhWlzX2S7f2-13">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="hdsZDOFmJW38S7iMikZD-9" value="Student" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="110" y="310" width="50" height="110" as="geometry" />
@@ -94,7 +105,7 @@
           <mxGeometry x="335" y="200" width="90" height="69.5" as="geometry" />
         </mxCell>
         <mxCell id="hdsZDOFmJW38S7iMikZD-17" value="Tilmelde sig lecture" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="280" y="390" width="80" height="60" as="geometry" />
+          <mxGeometry x="280" y="355" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="hdsZDOFmJW38S7iMikZD-19" value="Oprette lecture" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="460" y="399.5" width="80" height="60" as="geometry" />
@@ -102,7 +113,7 @@
         <mxCell id="hdsZDOFmJW38S7iMikZD-20" value="Fjerne lecture&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="460" y="470" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="hdsZDOFmJW38S7iMikZD-23" value="Se informationer om students" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="hdsZDOFmJW38S7iMikZD-23" value="Se tilmeldte students på en lecture" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="460" y="540" width="80" height="65" as="geometry" />
         </mxCell>
         <mxCell id="hdsZDOFmJW38S7iMikZD-45" value="Check for korrekt login" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -115,7 +126,7 @@
           <mxGeometry x="510" y="170" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Q4LFnAZzLEwqTKA5tDAf-2" value="Framelde sig lecture" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="290" y="470" width="80" height="60" as="geometry" />
+          <mxGeometry x="280" y="420" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Q4LFnAZzLEwqTKA5tDAf-5" value="Registrering&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="340" y="290" width="90" height="69.5" as="geometry" />
@@ -131,6 +142,12 @@
         </mxCell>
         <mxCell id="Q4LFnAZzLEwqTKA5tDAf-44" value="" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=#ffffff;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="180" y="635" width="440" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="hT9fbZHffNhWlzX2S7f2-11" value="Se tilmeldte students på en lecture" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="490" width="80" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="hT9fbZHffNhWlzX2S7f2-13" value="Se liste over alle lectures" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="560" width="80" height="65" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
