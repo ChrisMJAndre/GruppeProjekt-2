@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
     });
 })
 app.get('/register', redirectIfAuthenticatedMiddleware, (req, res) => {
-    pool.query(`SELECT * FROM studyProgramme`).then(result => {
+    pool.query(`SELECT * FROM studyprogramme`).then(result => {
         const studyProgrammes = result.rows;
         res.render('register', { studyProgrammes });
     }

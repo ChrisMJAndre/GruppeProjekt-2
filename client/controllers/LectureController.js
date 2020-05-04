@@ -51,12 +51,19 @@ module.exports = {
             return res.send('No permission')
         }
 
+        pool.query(`DELETE FROM listOfStudents WHERE listOfStudents.lecture_id=${lectureId}`
+        ).then( result => {
+            console.log(result);
+
         pool.query(`DELETE FROM lecture WHERE id=${lectureId} AND teacher_id=${user.id}`
         ).then(result => {
             console.log(result);
+        
+
 
             return res.redirect('/lectures')
-        }).catch(err => res.send(err))
+        })
+        })
     },
     async post(req, res) {
 
