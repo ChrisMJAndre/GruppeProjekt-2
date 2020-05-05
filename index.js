@@ -32,7 +32,6 @@ const authMiddleware = require('./middleware/authMiddleware');
 
 //Her importeres controllers
 const UserController = require('./client/controllers/UserController')
-const TeacherController = require('./client/controllers/TeacherController')
 const loginController = require('./client/controllers/login')
 const LectureController = require('./client/controllers/LectureController')
 
@@ -69,12 +68,9 @@ app.post('/api/lectures', (req, res) => {
     LectureController.create(req, res)
 })
 app.post('/auth/register', (req, res) => {
-    if (req.body.isStudent == 'true') {
-        UserController.create(req, res);
-    } else {
-        TeacherController.create(req, res);
-    }
-});
+    UserController.create(req, res);
+})
+
 app.get('/auth/login', loginController.index)
 app.get('/auth/logout', loginController.destroy)
 app.post('/users/login', UserController.post)

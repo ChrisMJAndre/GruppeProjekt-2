@@ -57,8 +57,6 @@ module.exports = {
         pool.query(`DELETE FROM lecture WHERE id=${lectureId} AND teacher_id=${user.id}`
         ).then(result => {
             console.log(result);
-        
-
 
             return res.redirect('/lectures')
         })
