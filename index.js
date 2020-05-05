@@ -1,6 +1,3 @@
-
-
-
 const express = require('express');
 const pool = require('./server/db');
 const http = require('http')
@@ -10,7 +7,6 @@ const app = new express();
 const ejs = require('ejs');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
-const moment = require('moment');
 app.use(cookieSession({
     name: 'session',
     keys: ['key1', 'key2']
