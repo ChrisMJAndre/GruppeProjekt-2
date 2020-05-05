@@ -8,7 +8,7 @@
     <main>
       <div class="lecture-information">
         <h2><%= LectureInformationShow.lecturename %></h2>
-        <p>Time and date: <time><%= LectureInformationShow.formattedDate %> - <%= LectureInformationShow.time %></time></p>
+        <p>Time and date: <time><%= LectureInformationShow.date %> - <%= LectureInformationShow.time %></time></p>
         <p>Teacher: <%= LectureInformationShow.firstname %> <%= LectureInformationShow.lastname %></p>
         <p>Location: <%= LectureInformationShow.location %></p>
         <p>Course: <%= LectureInformationShow.title %></p>
@@ -47,8 +47,8 @@
 
 
 <p>Joined students:</p>
-        <ul><% for (var i = 0; i < listOfStudents.length; i++) {%> <li>
-              <%= listOfStudents[i].firstname %> <%= listOfStudents[i].lastname %>
+        <ul><% for (var i = 0; i < ListOfStudentsInformationShow.length; i++) {%> <li>
+              <%= ListOfStudentsInformationShow[i].firstname %> <%= ListOfStudentsInformationShow[i].lastname %>
             <%}%> </li> </ul>
       </div>
     </main>

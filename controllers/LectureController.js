@@ -1,7 +1,7 @@
-const classimport = require('../models/lecture')
-const Lecture = classimport.Lecture;
+const classimport = require('../models/lecture');
+const classimport1 = require('../models/listOfStudents');
 const LectureInformation = classimport.LectureInformation;
-
+const ListOfStudentsInformation = classimport1.ListOfStudentsInformation;
 
 const pool = require('../server/db');
 const moment = require('moment');
@@ -29,17 +29,17 @@ module.exports = {
             const LectureInformationShow = new LectureInformation(result.rows[0].id, result.rows[0].lecturename ,result.rows[0].date ,result.rows[0].time ,result.rows[0].comment ,result.rows[0].teacher_id ,
                 result.rows[0].firstname ,result.rows[0].lastname ,result.rows[0].location ,result.rows[0].title );
             console.log(LectureInformationShow);
-            console.log(LectureInformationShow.lecturename);
-            LectureInformationShow.formattedDate = moment(LectureInformationShow.date).format('YYYY-MM-DD');
             pool.query(`SELECT listOfStudents.id, listOfStudents.student_id, listOfStudents.lecture_id, student.id, student.firstName, student.lastName, lecture_id FROM listOfStudents
         INNER JOIN student ON listOfStudents.student_id = student.id
         WHERE listOfStudents.lecture_id=${lectureId} 
          `).then( result => {
-
-                const listOfStudents = result.rows;
-                console.log(listOfStudents)
-                listOfStudents.lecture_id = lectureId;
-                res.render('lecture', { LectureInformationShow, user: req.session.user, listOfStudents })
+             // Burde laves om til en ny instace af en klasse, hvis man skal arbejde videre med den i fremtiden, men da den kun skal printe result.rows (objekt) ud så giver det ingen mening.
+                // new ListOfStudentsInformation(result.rows.id, result.rows.student_id ,result.rows.lecture_id ,result.rows.firstname, result.rows.lastname);
+                const ListOfStudentsInformationShow = result.rows;
+                console.log(ListOfStudentsInformationShow);
+                //console.log(listOfStudents)
+                //listOfStudents.lecture_id = lectureId;
+                res.render('lecture', { LectureInformationShow, user: req.session.user, ListOfStudentsInformationShow })
             })
         })
     },

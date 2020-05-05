@@ -1,12 +1,16 @@
+const moment = require('moment');
+
 class Lecture {
     constructor(id, lecturename, date, time, comment) {
         this.id = id;
         this.lecturename = lecturename;
-        this.date = date;
+        this.date = moment(LectureInformation.date).format('YYYY-MM-DD');
         this.time = time;
         this.comment = comment;
     }
 }
+
+
 
 class LectureInformation extends Lecture {
     constructor(id, lecturename, date, time, comment, teacher_id, firstname, lastname, location, title){
@@ -17,6 +21,7 @@ class LectureInformation extends Lecture {
         this.location = location;
         this.title = title;
     }
+
 }
 
 
