@@ -1,3 +1,6 @@
+
+
+
 const express = require('express');
 const pool = require('./server/db');
 const http = require('http')
@@ -14,7 +17,7 @@ app.use(cookieSession({
 }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.set('views', __dirname + '/client/views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 //Her startes serveren
@@ -31,9 +34,9 @@ const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthen
 const authMiddleware = require('./middleware/authMiddleware');
 
 //Her importeres controllers
-const UserController = require('./client/controllers/UserController')
-const loginController = require('./client/controllers/login')
-const LectureController = require('./client/controllers/LectureController')
+const UserController = require('./controllers/UserController')
+const loginController = require('./controllers/login')
+const LectureController = require('./controllers/LectureController')
 
 //Alle endpoints
 app.get('/', (req, res) => {

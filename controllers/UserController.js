@@ -1,4 +1,4 @@
-const pool = require('../../server/db');
+const pool = require('../server/db');
 
 module.exports = {
     async create(req, res) {

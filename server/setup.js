@@ -51,7 +51,7 @@ pool.query(`
     
     CREATE TABLE Lecture(
         id SERIAL,
-        lectureName text NOT NULL,
+        lecturename text NOT NULL,
         date date NOT NULL,
         time time NOT NULL,
         comment TEXT,
