@@ -28,6 +28,7 @@ module.exports = {
         `).then( result => {
             const LectureInformationShow = new LectureInformation(result.rows[0].id, result.rows[0].lecturename ,result.rows[0].date ,result.rows[0].time ,result.rows[0].comment ,result.rows[0].teacher_id ,
                 result.rows[0].firstname ,result.rows[0].lastname ,result.rows[0].location ,result.rows[0].title );
+                LectureInformationShow.id = lectureId
             console.log(LectureInformationShow);
             pool.query(`SELECT listOfStudents.id, listOfStudents.student_id, listOfStudents.lecture_id, student.id, student.firstName, student.lastName, lecture_id FROM listOfStudents
         INNER JOIN student ON listOfStudents.student_id = student.id
