@@ -10,7 +10,6 @@ module.exports = {
 ($1, $2, $3, $4, $5, $6) RETURNING *`, [req.body.firstName, req.body.lastName,
         req.body.password, req.body.email, req.body.phoneNumber, req.body.studyProgramme]
         ).then(result => {
-
             res.redirect('/')
         })
     },
