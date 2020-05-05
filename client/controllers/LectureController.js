@@ -1,6 +1,5 @@
 const pool = require('../../server/db');
-const bcrypt = require('bcryptjs')
-const moment = require('moment')
+const moment = require('moment');
 
 
 module.exports = {
