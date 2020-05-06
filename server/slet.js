@@ -1,3 +1,4 @@
+//Delete the database  - Chris
 const pool = require('./db');
 pool.query(`
 

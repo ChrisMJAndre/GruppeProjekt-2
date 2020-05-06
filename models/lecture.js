@@ -1,3 +1,4 @@
+//Moments imported in order to format the date
 const moment = require('moment');
 
 class Lecture {

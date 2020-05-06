@@ -1,4 +1,4 @@
-// Here we insert all of the data (the hardcoded data)
+// Here we insert all of the data (the hardcoded data) into our tables  - Chris
 
 const pool = require('./db');
 pool.query(`

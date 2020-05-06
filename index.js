@@ -1,3 +1,4 @@
+//Import some of the necessary (models? functions?) we need in order for the program to run - Chris
 const express = require('express');
 const pool = require('./server/db');
 const http = require('http')

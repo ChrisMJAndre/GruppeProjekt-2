@@ -1,4 +1,4 @@
-// A document where we set the general tables up
+//Creation of the tables in the database  - Chris
 const pool = require('./db');
 pool.query(`
 

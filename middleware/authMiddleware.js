@@ -1,5 +1,7 @@
 const pool = require('../server/db');
 
+
+//Middleware that assures that the user has permission to the endpoint - Chris
 module.exports = PERMISSIONARR => (req, res, next) => {
 
 

@@ -1,3 +1,6 @@
+//Connection to the Database is established here  - Chris
+
+
 const { Pool, Client } = require('pg');
 const pool = new Pool({
     host: 'localhost',
@@ -8,6 +11,10 @@ const pool = new Pool({
 });
 module.exports = pool;
 
+
+
+
+//SKAL DETTE VÆRE HER?  - Chris
 pool.query('SELECT NOW()').then(result => {
     console.log(result.rows)
 });
