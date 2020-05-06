@@ -37,6 +37,7 @@ module.exports = {
             //New instance of the model (class) LectureInformation is created to structure the data retrieved from the database - Chris
             const LectureInformationShow = new LectureInformation(result.rows[0].id, result.rows[0].lecturename ,result.rows[0].date ,result.rows[0].time ,result.rows[0].comment ,result.rows[0].teacher_id ,
                 result.rows[0].firstname ,result.rows[0].lastname ,result.rows[0].location ,result.rows[0].title );
+                LectureInformationShow.id = lectureId
             console.log(LectureInformationShow);
             //Select statement so that we can join the tables - Chris
             //Student Table is joined with the listOfStudents Table in order to retrieve information about the student, which will be displayed (see lecture.ejs) - Chris

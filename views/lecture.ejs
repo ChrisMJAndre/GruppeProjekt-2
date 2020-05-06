@@ -16,8 +16,8 @@
 
 
         <div id="removeLecture">
-          <% if (user.userType === 'teacher' && user.id === lecture.teacher_id){ %>
-            <button onclick="deleteLecture(<%= lecture.id %>)">
+          <% if (user.userType === 'teacher' && user.id === LectureInformationShow.teacher_id){ %>
+            <button onclick="deleteLecture(<%= LectureInformationShow.id %>)">
               Delete lecture
             </button>
           <% } %>
