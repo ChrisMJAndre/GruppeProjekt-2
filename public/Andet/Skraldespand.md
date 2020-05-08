@@ -298,8 +298,6 @@ Fra create lecture
       </select>
       <br /> -->
 
-
-
  <p>Course</p>
       <select id="course">
         <!-- Her skal vi gerne kunne tage fra databasen, ellers kan vi bare lave value="1" osv for fagene. -->
@@ -356,3 +354,22 @@ Fra create lecture
         placeholder="Insert time"
       ></textarea>
       <br />
+
+//Vi bruger ikke lecture i index i lecture controlleren. Har prøvet det her:
+
+    /lectures
+        <% for (var i = 0; i < lectures.length; i++) {%> <%= lectures[i] %>
+        <%}%>
+    /lecture.js
+        this.lecture = lecture;
+    }
+    getLectureList() {
+        let lectures = new Set();
+        for (const student of this.lecture) {
+            lectures.add(lecture.lecturename)
+        }
+        return Array.from(lectures);
+    /lectureController.JS
+      const lecture = new Lecture(result.rows);
+            const lectures = lecture.getLectureList();
+            console.log(lectures)
