@@ -8,52 +8,60 @@
     <main>
       <div class="lecture-information">
         <h2><%= LectureInformationShow.lecturename %></h2>
-        <p>Time and date: <time><%= LectureInformationShow.date %> - <%= LectureInformationShow.time %></time></p>
-        <p>Teacher: <%= LectureInformationShow.firstname %> <%= LectureInformationShow.lastname %></p>
+        <p>
+          Time and date:
+          <time
+            ><%= LectureInformationShow.date %> - <%=
+            LectureInformationShow.time %></time
+          >
+        </p>
+        <p>
+          Teacher: <%= LectureInformationShow.firstname %> <%=
+          LectureInformationShow.lastname %>
+        </p>
         <p>Location: <%= LectureInformationShow.location %></p>
         <p>Course: <%= LectureInformationShow.title %></p>
         <p><%= LectureInformationShow.comment %></p>
 
-
         <div id="removeLecture">
-          <% if (user.userType === 'teacher' && user.id === LectureInformationShow.teacher_id){ %>
-            <button onclick="deleteLecture(<%= LectureInformationShow.id %>)">
-              Delete lecture
-            </button>
+          <% if (user.userType === 'teacher' && user.id ===
+          LectureInformationShow.teacher_id){ %>
+          <button onclick="deleteLecture(<%= LectureInformationShow.id %>)">
+            Delete lecture
+          </button>
           <% } %>
         </div>
-
 
         <div id="joinLecture">
           <% if (user.userType === 'student') { %>
-            <form
-                    action="/lecture"
-                    method="POST"
-                    enctype="application/x-www-form-urlencoded"
-                    name="Join Lecture"
-            >
-              <input
-                      type="text"
-                      value="<%= LectureInformationShow.id %>"
-                      style="display: none;"
-                      name="lectureId"
-              />
-              <button type="submit">
-                Join lecture
-              </button>
-            </form>
+          <form
+            action="/lecture"
+            method="POST"
+            enctype="application/x-www-form-urlencoded"
+            name="Join Lecture"
+          >
+            <input
+              type="text"
+              value="<%= LectureInformationShow.id %>"
+              style="display: none;"
+              name="lectureId"
+            />
+            <button type="submit">
+              Join lecture
+            </button>
+          </form>
           <% } %>
         </div>
 
-
-<p>Joined students:</p>
-        <ul><% for (var i = 0; i < ListOfStudentsInformationShow.length; i++) {%> <li>
-              <%= ListOfStudentsInformationShow[i].firstname %> <%= ListOfStudentsInformationShow[i].lastname %>
-            <%}%> </li> </ul>
+        <p>Joined students:</p>
+        <ul>
+          <% for (var i = 0; i < students.length; i++) {%>
+          <li>
+            <%= students[i] %> <%}%>
+          </li>
+        </ul>
       </div>
     </main>
-
-
 
     <%- include('layouts/scripts'); -%>
   </body>

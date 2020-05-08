@@ -9,14 +9,14 @@ const pool = require('../server/db');
 
 //Export all the methodes so that they can be used in index.js - Chris
 module.exports = {
-    //async important so that the program only runs the specific method we call in index.js - Chris (NIKLAS ER DETTE OK?)
+    //async important so that the program only runs the specific method we call in index.js - Chris 
     //Create method that inserts all the data collected from the body into the Lecture table - Chris
     async create(req, res) {
         pool.query(`INSERT INTO lecture (lectureName, date, time, comment, teacher_id, classroom_id, course_id  ) VALUES
 ($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [req.body.lectureName, req.body.date,
         req.body.time, req.body.comment, req.session.user.id, req.body.classroom, req.body.course]
         ).then(result => {
-            console.log(result.rows); 
+            console.log(result.rows);
             res.redirect('/')
             //After successfully inserting the new data into the Lecture table, redirect the user back to the main page - Chris
         })
@@ -33,27 +33,25 @@ module.exports = {
         INNER JOIN classroom ON lecture.classroom_id=classroom.id
         INNER JOIN course ON lecture.course_id=course.id
         WHERE lecture.id=${lectureId}
-        `).then( result => {
+        `).then(result => {
+            const { id, lecturename, date, time, comment, teacher_id, firstname, lastname, location, title } = result.rows[0];
             //New instance of the model (class) LectureInformation is created to structure the data retrieved from the database - Chris
-            const LectureInformationShow = new LectureInformation(result.rows[0].id, result.rows[0].lecturename ,result.rows[0].date ,result.rows[0].time ,result.rows[0].comment ,result.rows[0].teacher_id ,
-                result.rows[0].firstname ,result.rows[0].lastname ,result.rows[0].location ,result.rows[0].title );
-                LectureInformationShow.id = lectureId
+            const LectureInformationShow = new LectureInformation(id, lecturename, date, time, comment, teacher_id,
+                firstname, lastname, location, title);
+            LectureInformationShow.id = lectureId
             console.log(LectureInformationShow);
             //Select statement so that we can join the tables - Chris
             //Student Table is joined with the listOfStudents Table in order to retrieve information about the student, which will be displayed (see lecture.ejs) - Chris
             pool.query(`SELECT listOfStudents.id, listOfStudents.student_id, listOfStudents.lecture_id, student.id, student.firstName, student.lastName, lecture_id FROM listOfStudents
         INNER JOIN student ON listOfStudents.student_id = student.id
         WHERE listOfStudents.lecture_id=${lectureId} 
-         `).then( result => {
-             // Burde laves om til en ny instace af en klasse, hvis man skal arbejde videre med den i fremtiden, men da den kun skal printe result.rows (objekt) ud så giver det ingen mening. - Chris
-                // new ListOfStudentsInformation(result.rows.id, result.rows.student_id ,result.rows.lecture_id ,result.rows.firstname, result.rows.lastname); - Chris
+         `).then(result => {
                 //Right now this object created below, stores the information retrieved about the student and ListofStudents table - Chris
-                const ListOfStudentsInformationShow = result.rows;
-                console.log(ListOfStudentsInformationShow);
-                //console.log(listOfStudents)
-                //listOfStudents.lecture_id = lectureId;
+                const listOfStudents = new ListOfStudentsInformation(result.rows);
+                const students = listOfStudents.getStudentList();
+                console.log(students);
                 //Render the lecture page, with the objects listed below - Chris
-                res.render('lecture', { LectureInformationShow, user: req.session.user, ListOfStudentsInformationShow })
+                res.render('lecture', { LectureInformationShow, user: req.session.user, students })
             })
         })
     },
@@ -77,15 +75,15 @@ module.exports = {
         }
         //Since there is a relation between the listOfStudents Table and Lecture Table, we first have to delete the students in the listOfStudents Table before deleting the Lecture - Chris
         pool.query(`DELETE FROM listOfStudents WHERE listOfStudents.lecture_id=${lectureId}`
-        ).then( result => {
-            console.log(result);
-
-        pool.query(`DELETE FROM lecture WHERE id=${lectureId} AND teacher_id=${user.id}`
         ).then(result => {
             console.log(result);
 
-            return res.redirect('/lectures')
-        })
+            pool.query(`DELETE FROM lecture WHERE id=${lectureId} AND teacher_id=${user.id}`
+            ).then(result => {
+                console.log(result);
+
+                return res.redirect('/lectures')
+            })
         })
     },
     //Post method for inserting students into listOfStudents Table - Chris

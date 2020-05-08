@@ -42,6 +42,13 @@ app.get('/', (req, res) => {
         userType: req.session.user ? req.session.user.userType : null
     });
 })
+app.get('/auth/login', loginController.index)
+app.get('/auth/logout', loginController.destroy)
+app.post('/users/login', UserController.post)
+
+app.post('/auth/register', (req, res) => {
+    UserController.create(req, res);
+})
 app.get('/register', redirectIfAuthenticatedMiddleware, (req, res) => {
     pool.query(`SELECT * FROM studyprogramme`).then(result => {
         const studyProgrammes = result.rows;
@@ -67,13 +74,9 @@ app.get('/createLecture', authMiddleware(['teacher']), (req, res) => {
 app.post('/api/lectures', (req, res) => {
     LectureController.create(req, res)
 })
-app.post('/auth/register', (req, res) => {
-    UserController.create(req, res);
-})
 
-app.get('/auth/login', loginController.index)
-app.get('/auth/logout', loginController.destroy)
-app.post('/users/login', UserController.post)
+
+
 
 
 //Hvis man forsøger at acces en side der ikke findes

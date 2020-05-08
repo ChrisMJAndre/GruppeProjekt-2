@@ -14,7 +14,7 @@ class Lecture {
 
 
 class LectureInformation extends Lecture {
-    constructor(id, lecturename, date, time, comment, teacher_id, firstname, lastname, location, title){
+    constructor(id, lecturename, date, time, comment, teacher_id, firstname, lastname, location, title) {
         super(id, lecturename, date, time, comment);
         this.teacher_id = teacher_id;
         this.firstname = firstname;
@@ -28,6 +28,6 @@ class LectureInformation extends Lecture {
 
 
 module.exports = {
-    Lecture: Lecture,
-    LectureInformation: LectureInformation
+    Lecture,
+    LectureInformation
 };

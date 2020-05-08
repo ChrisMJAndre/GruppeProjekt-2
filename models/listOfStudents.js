@@ -1,3 +1,4 @@
+const pool = require('../server/db')
 class ListOfStudents {
     constructor(id, student_id, lecture_id) {
         this.id = id;
@@ -7,18 +8,22 @@ class ListOfStudents {
     }
 }
 
-class ListOfStudentsInformation extends ListOfStudents {
-    constructor(id, student_id, lecture_id, firstname, lastname){
-        super(id, student_id, lecture_id);
-        this.firstname = firstname;
-        this.lastname = lastname;
-
+class ListOfStudentsInformation {
+    constructor(listOfStudents) {
+        this.listOfStudents = listOfStudents;
+    }
+    getStudentList() {
+        let students = new Set();
+        for (const student of this.listOfStudents) {
+            students.add(student.firstname + ' ' + student.lastname)
+        }
+        return Array.from(students);
     }
 }
 
 
 
 module.exports = {
-    ListOfStudents: ListOfStudents,
-    ListOfStudentsInformation: ListOfStudentsInformation
+    ListOfStudents,
+    ListOfStudentsInformation
 };
