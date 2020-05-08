@@ -1,4 +1,4 @@
-const pool = require('../server/db')
+const pool = require('../../database/db')
 class ListOfStudents {
     constructor(id, student_id, lecture_id) {
         this.id = id;

@@ -1,4 +1,4 @@
-const pool = require('../server/db');
+const pool = require('../../database/db');
 
 
 //Middleware that assures that the user has permission to the endpoint - Chris

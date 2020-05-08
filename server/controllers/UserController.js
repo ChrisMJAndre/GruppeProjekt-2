@@ -1,5 +1,5 @@
 //Import model (class) User
-const classimport = require('../server/models/User');
+const classimport = require('../models/User');
 const User = classimport.User;
 //pool required in order to send queries to the database - Chris
 const pool = require('../../database/db');

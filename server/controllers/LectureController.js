@@ -5,7 +5,7 @@ const LectureInformation = classimport.LectureInformation;
 const ListOfStudentsInformation = classimport1.ListOfStudentsInformation;
 
 //pool required in order to send queries to the database - Chris
-const pool = require('../server/db');
+const pool = require('../../database/db');
 
 //Export all the methodes so that they can be used in index.js - Chris
 module.exports = {
@@ -16,7 +16,6 @@ module.exports = {
 ($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [req.body.lectureName, req.body.date,
         req.body.time, req.body.comment, req.session.user.id, req.body.classroom, req.body.course]
         ).then(result => {
-            console.log(result.rows);
             res.redirect('/')
             //After successfully inserting the new data into the Lecture table, redirect the user back to the main page - Chris
         })
@@ -39,7 +38,6 @@ module.exports = {
             const LectureInformationShow = new LectureInformation(id, lecturename, date, time, comment, teacher_id,
                 firstname, lastname, location, title);
             LectureInformationShow.id = lectureId
-            console.log(LectureInformationShow);
             //Select statement so that we can join the tables - Chris
             //Student Table is joined with the listOfStudents Table in order to retrieve information about the student, which will be displayed (see lecture.ejs) - Chris
             pool.query(`SELECT listOfStudents.id, listOfStudents.student_id, listOfStudents.lecture_id, student.id, student.firstName, student.lastName, lecture_id FROM listOfStudents
@@ -49,7 +47,6 @@ module.exports = {
                 //Right now this object created below, stores the information retrieved about the student and ListofStudents table - Chris
                 const listOfStudents = new ListOfStudentsInformation(result.rows);
                 const students = listOfStudents.getStudentList();
-                console.log(students);
                 //Render the lecture page, with the objects listed below - Chris
                 res.render('lecture', { LectureInformationShow, user: req.session.user, students })
             })
@@ -76,11 +73,9 @@ module.exports = {
         //Since there is a relation between the listOfStudents Table and Lecture Table, we first have to delete the students in the listOfStudents Table before deleting the Lecture - Chris
         pool.query(`DELETE FROM listOfStudents WHERE listOfStudents.lecture_id=${lectureId}`
         ).then(result => {
-            console.log(result);
 
             pool.query(`DELETE FROM lecture WHERE id=${lectureId} AND teacher_id=${user.id}`
             ).then(result => {
-                console.log(result);
 
                 return res.redirect('/lectures')
             })

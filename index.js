@@ -1,6 +1,6 @@
 //Import some of the necessary npm packages we need in order for the program to run - Chris
 const express = require('express');
-const pool = require('./server/db');
+const pool = require('./database/db');
 const http = require('http')
 const reload = require('reload')
 const path = require('path');
@@ -14,7 +14,7 @@ app.use(cookieSession({
 }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/server/views');
 app.set('view engine', 'ejs');
 
 //Server is initiated
@@ -27,18 +27,18 @@ reload(app);
 
 
 //Import of middleware
-const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
-const authMiddleware = require('./middleware/authMiddleware');
+const redirectIfAuthenticatedMiddleware = require('./server/middleware/redirectIfAuthenticatedMiddleware');
+const authMiddleware = require('./server/middleware/authMiddleware');
 
 //Import of controllers
-const UserController = require('./controllers/UserController')
-const loginController = require('./controllers/login')
-const LectureController = require('./controllers/LectureController')
+const UserController = require('./server/controllers/UserController')
+const loginController = require('./server/controllers/login')
+const LectureController = require('./server/controllers/LectureController')
 
 //All of the endpoints
 app.get('/', (req, res) => {
     res.render('index', {
-        //Sets isLoggedIn as boolean. That way we request if the userType is true (for student) or false(for teacher)
+        //Sets isLoggedIn as boolean. That way index.ejs checks if 
         isLoggedIn: !!req.session.user,
         userType: req.session.user ? req.session.user.userType : null
     });

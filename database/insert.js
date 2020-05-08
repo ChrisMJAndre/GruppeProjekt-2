@@ -37,7 +37,7 @@ pool.query(`
     /* Insert Student into the Student Table, not all Student */
     INSERT INTO Student (firstName, lastName, passWord, email, phoneNumber, StudyProgramme_id)
             VALUES 
-                    ('Niklas', 'Lykke-Bondergaard', '1234', 'Nily19ab@student.cbs.dk', '31320232', '1'),
+                    ('Niklas', 'Lykke-Bøndergaard', '1234', 'Nily19ab@student.cbs.dk', '31320232', '1'),
                     ('Josefine', 'Colberg', '2468', 'Joje19ae@student.cbs.dk', '26236206', '1'),
                     ('Kasper', 'ThatGuy', '1357', 'Kath19ay@student.cbs.dk','45455267','2'),
                     ('Jens', 'Jensen', '9876', 'Jeje19ab@student.cbs.dk', '45678901', '2'),
@@ -66,5 +66,5 @@ pool.query(`
 
 
     `).then(result => {
-    console.log(error, result);
+        console.log(error, result);
 });
