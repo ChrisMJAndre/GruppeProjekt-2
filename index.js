@@ -1,4 +1,4 @@
-//Import some of the necessary (models? functions?) we need in order for the program to run - Chris
+//Import some of the necessary npm packages we need in order for the program to run - Chris
 const express = require('express');
 const pool = require('./server/db');
 const http = require('http')
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-//Her startes serveren
+//Server is initiated
 app.use(express.static('public'));
 const server = http.createServer(app);
 server.listen(4000, () => {
@@ -26,16 +26,16 @@ server.listen(4000, () => {
 reload(app);
 
 
-//Her kan vi importere middleware
+//Import of middleware
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
 const authMiddleware = require('./middleware/authMiddleware');
 
-//Her importeres controllers
+//Import of controllers
 const UserController = require('./controllers/UserController')
 const loginController = require('./controllers/login')
 const LectureController = require('./controllers/LectureController')
 
-//Alle endpoints
+//All of the endpoints
 app.get('/', (req, res) => {
     res.render('index', {
         isLoggedIn: !!req.session.user,
@@ -76,7 +76,7 @@ app.get('/auth/logout', loginController.destroy)
 app.post('/users/login', UserController.post)
 
 
-//Hvis man forsøger at acces en side der ikke findes
+//Not found page, where if the user tries to access a page that does not exist
 app.use((req, res) =>
     res.render('notfound'));
 
