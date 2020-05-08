@@ -38,6 +38,7 @@ const LectureController = require('./controllers/LectureController')
 //All of the endpoints
 app.get('/', (req, res) => {
     res.render('index', {
+        //Sets isLoggedIn as boolean. That way we request if the userType is true (for student) or false(for teacher)
         isLoggedIn: !!req.session.user,
         userType: req.session.user ? req.session.user.userType : null
     });
