@@ -61,6 +61,7 @@ app.get('/lecture/:id', authMiddleware(['teacher', 'student']), LectureControlle
 app.delete('/lecture/:id', authMiddleware(['teacher']), LectureController.destroy);
 app.post('/lecture/', authMiddleware(['student']), LectureController.post);
 app.get('/lectures', authMiddleware(['teacher', 'student']), LectureController.index);
+
 app.get('/createLecture', authMiddleware(['teacher']), (req, res) => {
     pool.query(`SELECT * FROM classroom`).then(classroomResult => {
         pool.query(`SELECT * FROM course`).then(courseResult => {
