@@ -52,15 +52,13 @@
         </select>
       </div>
 
-
       <!-- Her skal den kun vise de fag, som er tilknyttet den studieretning en user har-->
       <div>
         <label>Course</label>
         <select id="course" name="course">
           <% for (const course of courses) { %>
-          <option value="<%= course.id %>"
-            ><%= course.title %> - <%= course.studyprogramme_id %></option>
-          <% } %> 
+          <option value="<%= course.id %>"><%= course.title %></option>
+          <% } %>
         </select>
       </div>
 
@@ -70,7 +68,6 @@
         Create lecture
       </button>
     </form>
-
 
     <%- include('layouts/scripts'); -%>
   </body>
