@@ -25,9 +25,11 @@ module.exports = {
         //Depending on what is checked in the radiobutton "dbtable" changes value  - Chris
         pool.query(`SELECT * FROM ${dbTable} WHERE email LIKE $1`, [email])
             .then(result => {
-                const { id, firstname, lastname, password, email, phonenumber, studyprogramme_id } = result.rows[0];
-                const user = new User(id, firstname, lastname, password, email, phonenumber, studyprogramme_id);
-
+                const user = new User(result.rows[0].id, result.rows[0].firstname, result.rows[0].lastname, result.rows[0].password, result.rows[0].email, result.rows[0].phonenumber, result.rows[0].studyprogramme_id);
+                console.log(result.rows[0]);
+                //const { id, firstname, lastname, password, email, phonenumber, studyprogramme_id } = result.rows[0];
+                //const user = new User(id, firstname, lastname, password, email, phonenumber, studyprogramme_id);
+                //hvis denne metode skal bruges så skal password oppe i req.body ændres til noget andet, samt type = text i login.ejs
                 if (user) {
                     if (user.password == password) {
                         req.session.user = {

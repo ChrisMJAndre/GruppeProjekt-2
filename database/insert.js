@@ -42,6 +42,7 @@ pool.query(`
                     ('Kasper', 'ThatGuy', '1357', 'Kath19ay@student.cbs.dk','45455267','2'),
                     ('Jens', 'Jensen', '9876', 'Jeje19ab@student.cbs.dk', '45678901', '2'),
                     ('Hans', 'Hansen', '4534', 'Haha19ae@student.cbs.dk', '12345678', '3'),
+                    ('CensorStudent', 'test', '123', 'Censorstudent@student.cbs.dk', '78945621', '1'),
                     ('Mathias', 'Mathiasen', '9843', 'Mama19at@student.cbs.dk', '95953535', '3');
             
     /* Insert teacher into the Teacher Table, not all teacher */
@@ -52,16 +53,17 @@ pool.query(`
                     ('Helene', 'Hansen', '4567', 'Hehe15ay@student.cbs.dk', '65436543', '2'),
                     ('Anders', 'Andersen', '3456', 'Anan17ab@student.cbs.dk', '34563456', '2'), 
                     ('Simon', 'Jensen', '1278', 'Sije18au@student.cbs.dk', '23235656', '3'),
+                    ('CensorTeacher', 'test', '123', 'Censorteacher@student.cbs.dk', '78965412', '1'),
                     ('Andreas', 'Rasmussen', '8765', 'Anra17ap@student.cbs.dk', '42424501', '3');
                     
    /* Insert Lectures into the Lecture Table */
     INSERT INTO Lecture (lectureName, date, time, comment, teacher_id, classroom_id, course_id)
         VALUES 
-                ('Programmerings hjælp', '2020/05/01', '04:00', 'Husk kolde monster', '1', '1', '3'), 
+                ('Programmerings hjælp', '2020/05/01', '04:00', 'Hello World', '1', '1', '3'), 
                 ('Organisations hjælp', '2020/06/04', '19:00', 'Medbring "Hvordan organisationer fungerer" af Jacobsen og Thorsvik ', '2', '3', '2'), 
                 ('VØS hjælp', '2020/05/13', '09:30', 'Installer excel og et regneprogram på forhånd, tak', '1', '1', '4'), 
                 ('How to be a laywer', '2020/05/26', '08:00', 'Se Suits!', '3', '2', '6'), 
-                ('Erhvervsmatematik hjælp', '2020/06/10', '14:45', 'a^2+b^2=c^2 eller sådan noget', '4', '5', '8');
+                ('Erhvervsmatematik hjælp', '2020/06/10', '14:45', '2 + 2 = 4', '4', '5', '8');
     
 
 
