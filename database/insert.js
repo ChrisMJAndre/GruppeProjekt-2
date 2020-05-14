@@ -42,7 +42,6 @@ pool.query(`
                     ('Kasper', 'ThatGuy', '1357', 'Kath19ay@student.cbs.dk','45455267','2'),
                     ('Jens', 'Jensen', '9876', 'Jeje19ab@student.cbs.dk', '45678901', '2'),
                     ('Hans', 'Hansen', '4534', 'Haha19ae@student.cbs.dk', '12345678', '3'),
-                    ('CensorStudent', 'test', '123', 'Censorstudent@student.cbs.dk', '78945621', '1'),
                     ('Mathias', 'Mathiasen', '9843', 'Mama19at@student.cbs.dk', '95953535', '3');
             
     /* Insert teacher into the Teacher Table, not all teacher */
@@ -53,7 +52,6 @@ pool.query(`
                     ('Helene', 'Hansen', '4567', 'Hehe15ay@student.cbs.dk', '65436543', '2'),
                     ('Anders', 'Andersen', '3456', 'Anan17ab@student.cbs.dk', '34563456', '2'), 
                     ('Simon', 'Jensen', '1278', 'Sije18au@student.cbs.dk', '23235656', '3'),
-                    ('CensorTeacher', 'test', '123', 'Censorteacher@student.cbs.dk', '78965412', '1'),
                     ('Andreas', 'Rasmussen', '8765', 'Anra17ap@student.cbs.dk', '42424501', '3');
                     
    /* Insert Lectures into the Lecture Table */
