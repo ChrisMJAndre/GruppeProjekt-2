@@ -10,7 +10,7 @@
     "cookie-session": "^1.4.0",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "express-session": "^1.17.0",
     "express-validator": "^6.4.0",
     "flash": "^1.1.0",
