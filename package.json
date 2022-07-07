@@ -15,7 +15,7 @@
     "express-validator": "^6.4.0",
     "flash": "^1.1.0",
     "install": "^0.13.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.5",
     "mongoose-unique-validator": "^2.0.3",
     "mysql2": "^2.1.0",
